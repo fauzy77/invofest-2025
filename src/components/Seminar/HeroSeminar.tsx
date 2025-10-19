@@ -61,7 +61,7 @@ const HeroSeminar = () => {
                   isOutline={true}
                   handleClick={() =>
                     window.open(
-                      `https://wa.me/6285972736905?text=${encodeURIComponent(
+                      `https://wa.me/62895605919551?text=${encodeURIComponent(
                         "Halo Kak, Saya Ingin Bertanya..."
                       )}`
                     )

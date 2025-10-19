@@ -18,7 +18,7 @@ export function MediaPartner() {
           data-aos-delay="150"
           className="mt-8 text-[1.6rem] font-bold text-slate-600 sm:text-[40px]/[48px] text-center"
         >
-          Media Partner <br className="block sm:hidden" /> <span className="text-invofest">INVOFEST 2024</span>
+          Media Partner <br className="block sm:hidden" /> <span className="text-invofest">INVOFEST 2025</span>
         </h1>
         <InfiniteMovingCards
           items={mediaPartner}

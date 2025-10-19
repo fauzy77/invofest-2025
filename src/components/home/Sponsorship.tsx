@@ -18,7 +18,7 @@ export function Sponsorship() {
           data-aos-delay="150"
           className="mb-2 text-2xl font-bold text-slate-600 sm:text-[40px]/[48px] text-center"
         >
-          Sponsor <span className="text-invofest">INVOFEST 2024</span>
+          Sponsor <span className="text-invofest">INVOFEST 2025</span>
         </h1>
         <InfiniteMovingCards
           items={sponsorLogo}

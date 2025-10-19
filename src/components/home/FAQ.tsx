@@ -40,13 +40,13 @@ const FAQ = () => {
               <div data-aos="zoom-in-down" data-aos-delay="50">
                 <AccordionItem
                   header="Apa itu INVOFEST?"
-                  text="Invofest (Informatics Vocational Festival) adalah festival tahunan yang diakan oleh program studi teknik informatika Politeknik Harapan Bersama Tegal,yang bertujuan untuk menginspirasi dan memberdayakan generasi muda Indonesia dalam menghadapi era digital."
+                  text="Invofest (Informatics Vocational Festival) adalah festival tahunan yang diakan oleh program studi sarjana terapan teknik informatika Universitas Harkat Negeri, yang bertujuan untuk menginspirasi dan memberdayakan generasi muda Indonesia dalam menghadapi era digital."
                 />
               </div>
               <div data-aos="zoom-in-down" data-aos-delay="200">
                 <AccordionItem
                   header="Kapan dan dimana INVOFEST dilaksanakan?"
-                  text="INVOFEST diselenggarakan mulai tanggal 1 September 2024 sampai dengan tanggal 1 November 2024. Untuk acara workshop, seminar, talkshow diadakan secara Offline di Politeknik Harapan Bersama dan kompetisi diadakan secara Online."
+                  text="INVOFEST diselenggarakan mulai tanggal 24 Oktober 2025 sampai dengan tanggal 24 November 2025. Untuk acara workshop, seminar, talkshow diadakan secara Offline di kampus 1 Universitas Harkat Negeri dan kompetisi diadakan secara Online."
                 />
               </div>
               <div data-aos="zoom-in-down" data-aos-delay="350">
@@ -60,13 +60,13 @@ const FAQ = () => {
               <div data-aos="zoom-in-down" data-aos-delay="500">
                 <AccordionItem
                   header="Bagaimana saya mengetahui pemenang kompetisi?"
-                  text="Pemenang akan diinformasikan melalui media sosial instagram dari invofest @invofest_harber."
+                  text="Pemenang akan diinformasikan melalui media sosial instagram dari invofest @invofest_harkatnegeri."
                 />
               </div>
               <div data-aos="zoom-in-down" data-aos-delay="650">
                 <AccordionItem
                   header="Apa yang didapat pemenang dalam kompetisi?"
-                  text="Pemenang kompetisi akan mendapatkan hadiah uang tunai dan sertifikat."
+                  text="Pemenang kompetisi akan mendapatkan hadiah uang pembinaan dan sertifikat."
                 />
               </div>
               <div data-aos="zoom-in-down" data-aos-delay="800">
@@ -90,7 +90,7 @@ const AccordionItem = ({ header, text }: { header: string; text: string }) => {
     setActive(!active);
   };
   return (
-    <div className="mb-8 w-full rounded-lg p-4 shadow-[0px_0px_7px_0px_rgba(250,159,67,1)] overflow-hidden relative before:absolute before:w-[0.4rem] before:h-full before:bg-invofest before:right-0 before:top-0 sm:p-8 lg:px-6 xl:px-8">
+    <div className="mb-8 w-full rounded-lg p-4 shadow-[0px_0px_7px_0px_rgba(153,5,81,1)] overflow-hidden relative before:absolute before:w-[0.4rem] before:h-full before:bg-invofest before:right-0 before:top-0 sm:p-8 lg:px-6 xl:px-8">
       <button
         className={`faq-btn flex w-full text-left`}
         onClick={() => handleToggle()}

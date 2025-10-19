@@ -63,8 +63,8 @@ const CustomHero = ({
               alt="hero-landing-page"
               className={`w-[320px] ${
                 title === "IT Seminar"
-                  ? "sm:w-[360px]"
-                  : "title === IT Talkshow"
+                  // ? "sm:w-[360px]"
+                  // : "sm:w-[300px]"
                   ? "sm:w-[460px]"
                   : "sm:w-[400px]"
               }`}

@@ -20,8 +20,7 @@ const ITSeminarSec = () => {
               <h1
                 data-aos="fade-right"
                 data-aos-delay="300"
-                className="font-semibold text-invofest text-3xl sm:text-4xl lg:text-5xl"
-              >
+                className="font-semibold text-invofest text-3xl sm:text-4xl lg:text-5xl">
                 IT Seminar
               </h1>
               <p

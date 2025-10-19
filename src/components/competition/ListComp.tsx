@@ -13,7 +13,7 @@ const ListComp = () => {
     });
   }, []);
 
-  return (
+  return (  
     <React.Fragment>
       <div className="max-w-screen-xl mx-auto">
         <div className="w-full h-fit p-4 px-8">
