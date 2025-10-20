@@ -46,13 +46,13 @@ const FAQ = () => {
               <div data-aos="zoom-in-down" data-aos-delay="200">
                 <AccordionItem
                   header="Kapan dan dimana INVOFEST dilaksanakan?"
-                  text="INVOFEST diselenggarakan mulai tanggal 24 Oktober 2025 sampai dengan tanggal 24 November 2025. Untuk acara workshop, seminar, talkshow diadakan secara Offline di kampus 1 Universitas Harkat Negeri dan kompetisi diadakan secara Online."
+                  text="INVOFEST diselenggarakan mulai tanggal 21 Oktober 2025 sampai dengan tanggal 27 November 2025. Untuk acara workshop, seminar, talkshow diadakan secara Offline di kampus 1 Universitas Harkat Negeri dan kompetisi diadakan secara Online."
                 />
               </div>
               <div data-aos="zoom-in-down" data-aos-delay="350">
                 <AccordionItem
                   header="Apakah ada biaya pendaftaran di INVOFEST?"
-                  text="Semua kegiatan dipastikan berbayar tidak ada yang gratis hehehe."
+                  text="Semua kegiatan dipastikan berbayar ya teman-teman."
                 />
               </div>
             </div>
@@ -66,13 +66,13 @@ const FAQ = () => {
               <div data-aos="zoom-in-down" data-aos-delay="650">
                 <AccordionItem
                   header="Apa yang didapat pemenang dalam kompetisi?"
-                  text="Pemenang kompetisi akan mendapatkan hadiah uang pembinaan dan sertifikat."
+                  text="Pemenang kompetisi akan mendapatkan hadiah trophy, uang pembinaan, dan e-sertifikat."
                 />
               </div>
               <div data-aos="zoom-in-down" data-aos-delay="800">
                 <AccordionItem
                   header="Bagaimana cara mendaftar event?"
-                  text="Buka web invofest di browser anda lalu pergi ke halaman event yang anda ingin ikuti atau scroll kebagian bawah halaman beranda dengan klik mendaftar pada salah satu eventnya, jika sudah maka diarahkan ke halaman detail event dan klik tombol 'DAFTAR' maka akan diarahkan ke google form pengisian pendaftaran event yang diikuti."
+                  text="Buka https://www.invofest-harkatnegeri.com lalu pergi ke halaman event yang anda ingin ikuti atau scroll kebagian bawah halaman beranda dengan klik mendaftar pada salah satu eventnya, jika sudah maka diarahkan ke halaman detail event dan klik tombol 'Registrasi' maka akan diarahkan ke google form pengisian pendaftaran event yang diikuti."
                 />
               </div>
             </div>

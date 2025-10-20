@@ -34,8 +34,7 @@ const About = () => {
               Invofest 2025, yang diselenggarakan oleh sarjana terapan Teknik Informatika
               Universitas Harkat Negeri, adalah festival tahunan yang bertujuan untuk menginspirasi
               dan memberdayakan generasi muda Indonesia dalam menghadapi era
-              digital. Dengan mengusung tema “AI for a Sustainable Future: The
-              Role of Generation Z in the Digital Era”. Invofest 2025
+              digital. Dengan mengusung tema <b>“Beyond Limits, Beyond Intelligence: Innovate for a Smarter Tomorrow ”</b>. Invofest 2025
               menghadirkan berbagai kegiatan menarik seperti kompetisi IT,
               workshop IT, dan seminar nasional & talkshow dengan para ahli
               teknologi.
@@ -46,7 +45,7 @@ const About = () => {
                 dataAos="zoom-in"
                 delayAos="150"
                 btnText="INFO SELENGKAPNYA"
-                desc="Seminar nasional ini membahas 'The Synergy of AI and Gen Z' untuk mengembangkan potensi diri dan pengetahuan teknologi lebih dalam lagi."
+                desc="Seminar nasional ini membahas “Human-AI Integration: Merancang Arsitektur Kolaboratif, Bukan Kompetitif” untuk mengembangkan potensi diri dan pengetahuan teknologi lebih dalam lagi."
                 title="IT Seminar"
                 href="/seminar"
               />
@@ -54,7 +53,7 @@ const About = () => {
                 dataAos="zoom-in"
                 delayAos="350"
                 btnText="INFO SELENGKAPNYA"
-                desc="Talkshow 'Gen Z and AI' membahas peran Generasi Z dalam memanfaatkan AI untuk solusi berkelanjutan dan peningkatan teknologi."
+                desc="Talkshow “Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan” membahas peran manusia dalam memanfaatkan AI untuk solusi berkelanjutan dan peningkatan teknologi."
                 title="IT Talkshow"
                 href="/talkshow"
               />
@@ -62,7 +61,7 @@ const About = () => {
                 dataAos="zoom-in"
                 delayAos="550"
                 btnText="INFO SELENGKAPNYA"
-                desc="Kompetisi 'AI Challenge: Gen Z's Quest for Digital Sustainability' mengajak Gen Z menciptakan solusi AI inovatif mendukung keberlanjutan digital."
+                desc="Kompetisi “From Creation to Innovation” mengajak generasi muda untuk mengembangkan inovasi dan kreativitas guna membentuk kelompok yang memiliki potensi luar biasa, yang mampu mewujudkan masa depan yang berkelanjutan."
                 title="IT Competition"
                 href="/competition"
               />
@@ -70,7 +69,7 @@ const About = () => {
                 dataAos="zoom-in"
                 delayAos="750"
                 btnText="INFO SELENGKAPNYA"
-                desc="Workshop 'Hands-On AI' membekali Gen Z dengan keterampilan praktis AI untuk menciptakan solusi berkelanjutan."
+                desc="Workshop 'AI for a Sustainable Future: The Role of Z Generation in the Digital Era' membekali Gen Z dengan keterampilan praktis AI untuk menciptakan solusi berkelanjutan."
                 title="IT Workshop"
                 href="/workshop"
               />

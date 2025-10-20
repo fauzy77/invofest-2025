@@ -1,64 +1,71 @@
 export const dataSeminar = {
   heroTitle: "IT Seminar",
   subtitle:
-    "“The Synergy of All and Gen Z: Shaping a Sustainable Digital Future”",
+    "“Human-AI Integration: Merancang Arsitektur Kolaboratif, Bukan Kompetitif”",
   heroDescription:
-    "Seminar ini membahas sinergi AI dan Gen Z untuk membentuk masa depan digital yang berkelanjutan. Acara ini bertujuan mengembangkan potensi diri dan pengetahuan di bidang teknologi informasi.",
-  linkRegister: "https://forms.gle/A3sx8cDS97K3ZQdN8",
+    "Seminar nasional yang membahas strategi dan arsitektur teknologi untuk menciptakan sistem di mana manusia dan AI bekerja sebagai mitra yang sinergis." +
+
+    "Yang bertujuan mengubah paradigma dari persaingan menjadi kolaborasi, serta meningkatkan pengetahuan peserta dalam merancang teknologi AI yang berpusat pada manusia.",
+  linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSe-f-Fcyi6ZTDr3FsPabA2Mvf0qISUq0Lw00-WsIhVXMmpIKw/viewform?usp=preview",
   image: "/assets/Maskot-Seminar.png",
   aboutTitle: "Tentang  IT SEMINAR",
-  aboutDescription: `Seminar bertajuk "The Synergy of AI and Gen Z: Shaping a Sustainable Digital Future" merupakan sebuah forum yang membahas peran vital kecerdasan buatan (AI) dalam kolaborasi dengan generasi Z untuk membangun masa depan digital yang lebih berkelanjutan. Seminar ini bertujuan untuk mengembangkan potensi diri dan memperluas wawasan peserta mengenai berbagai aspek teknologi informasi yang terus berkembang pesat. Melalui paparan dari para pakar, diskusi panel, dan sesi tanya jawab, peserta akan diajak untuk mengeksplorasi bagaimana sinergi antara AI dan Gen Z dapat mendorong inovasi teknologi yang tidak hanya relevan dengan kebutuhan industri masa kini, tetapi juga berkontribusi pada keberlanjutan lingkungan dan sosial. Acara ini diharapkan dapat menjadi wadah bagi para profesional, akademisi, dan mahasiswa untuk saling berbagi pengetahuan, memperkuat jaringan, dan merumuskan strategi yang tepat dalam menghadapi tantangan digital di masa depan.`,
+  aboutDescription: `Seminar bertajuk “Human-AI Integration: Merancang Arsitektur Kolaboratif, Di tengah pesatnya kemajuan kecerdasan buatan (AI), narasi yang sering muncul adalah tentang persaingan antara manusia dan mesin. Kekhawatiran akan penggantian peran manusia oleh teknologi cerdas menjadi diskusi utama di berbagai sektor. Namun, bagaimana jika kita mengubah paradigma tersebut?
+                    Seminar Nasional Teknologi Informasi ini hadir untuk menjawab tantangan itu dengan mengangkat tema "Human-AI Integration: Merancang Arsitektur Kolaboratif, Bukan Kompetitif.”
+                    Kami bertujuan untuk menggeser fokus dari ketakutan akan kompetisi menjadi eksplorasi peluang kolaborasi. Seminar ini akan mengupas tuntas bagaimana kita dapat merancang sistem, etika, dan lingkungan kerja di mana AI berfungsi sebagai mitra yang memperkuat kecerdasan, kreativitas, dan produktivitas manusia—bukan sebagai pengganti.`,
   speakers: [
-    {
-      name: "Martin Novela",
-      position: "Head Of Product Vokal.ai",
-      image: "/assets/seminar/21.webp",
-    },
-    {
-      name: "Edi Kurniawan",
-      position: "Co-Founder PT Indonesia Digital Goldstar",
-      image: "/assets/seminar/22.webp",
-    },
+    // {
+    //   name: "Martin Novela",
+    //   position: "Head Of Product Vokal.ai",
+    //   image: "/assets/seminar/21.webp",
+    // },
+    // {
+    //   name: "Edi Kurniawan",
+    //   position: "Co-Founder PT Indonesia Digital Goldstar",
+    //   image: "/assets/seminar/22.webp",
+    // },
   ],
   events: {
     title: "IT Seminar",
     place: "Aula Gedung C",
     time: "08.00 WIB - 12.30 WIB",
-    date: "Kamis, 24 Oktober 2024",
+    date: "Kamis, 27 November 2025",
   },
 };
 
 export const dataTalkshow = {
   heroTitle: "IT Talkshow",
   subtitle:
-    "“Gen Z and AI: Pioneering Sustainable Solutions in the Digital Age”",
-  heroDescription: `Talkshow ini membahas  "Gen Z dan AI: Memelopori Solusi Berkelanjutan di Era Digital," yang fokus pada peran penting generasi Z dalam memanfaatkan kecerdasan buatan untuk menciptakan solusi yang lebih ramah lingkungan dan berkelanjutan.`,
-  linkRegister: "https://forms.gle/2h5hEifEngicBko88",
+    "“Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan”",
+  heroDescription: `Talkshow “Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan” Sebuah diskusi interaktif yang mengeksplorasi cara mengintegrasikan nilai-nilai kemanusiaan seperti etika, empati, dan kreativitas ke dalam pengembangan kecerdasan buatan.
+                    yang bertujuan menginspirasi audiens untuk membangun dan memanfaatkan AI sebagai alat kolaboratif yang memperkuat potensi unik manusia, bukan sebagai penggantinya.`,
+  linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSc2bJFA8OAmN3BgNsBgM_QTzXGT0bbzuA-Zhezq0LPL2_P6WQ/viewform?usp=preview",
   image: "/assets/Maskot-Talkshow.png",
   aboutTitle: "Tentang IT Talkshow",
-  aboutDescription: `Talkshow ini mengajak Generasi Z untuk memahami peran penting AI dalam menciptakan solusi berkelanjutan. Melalui diskusi interaktif, peserta akan mendapatkan wawasan dan inspirasi mengenai bagaimana memanfaatkan AI untuk menghadapi tantangan global dan memelopori perubahan positif di era digital`,
+  aboutDescription: `Seiring teknologi, khususnya kecerdasan buatan (AI), yang semakin meresap ke dalam setiap aspek kehidupan kita, muncul sebuah pertanyaan fundamental: Apakah kita sedang menciptakan teknologi yang melayani manusia, atau justru sebaliknya?
+                    Untuk menjawab pertanyaan tersebut, kami mempersembahkan talkshow berskala nasional: “Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan.”
+                    Acara ini dirancang bukan untuk membahas teknologi sebagai entitas yang dingin dan terpisah, melainkan untuk menggali bagaimana kita dapat menanamkan nilai-nilai kemanusiaan—seperti empati, etika, dan kreativitas—ke dalam inti pengembangan AI. Kami akan mengupas tuntas visi masa depan di mana AI tidak menjadi pesaing, tetapi menjadi mitra kolaboratif yang memperkuat potensi unik manusia.`,
   speakers: [
-    {
-      name: "Nurul Arifiah Gunarsih",
-      position: "ex Frontend Developer JD Technology",
-      image: "/assets/talkshow/19.webp",
-    },
-    {
-      name: "Muhamad Zaim Zamzami",
-      position: "Programmer PT Pertamina Drill (PDSI)",
-      image: "/assets/talkshow/18.webp",
-    },
-    {
-      name: "Nofi Bayu Darmawan",
-      position: "Founder & CEO Komerce",
-      image: "/assets/talkshow/20.webp",
-    },
+    // {
+    //   name: "Nurul Arifiah Gunarsih",
+    //   position: "ex Frontend Developer JD Technology",
+    //   image: "/assets/talkshow/19.webp",
+    // },
+    // {
+    //   name: "Muhamad Zaim Zamzami",
+    //   position: "Programmer PT Pertamina Drill (PDSI)",
+    //   image: "/assets/talkshow/18.webp",
+    // },
+    // {
+    //   name: "Nofi Bayu Darmawan",
+    //   position: "Founder & CEO Komerce",
+    //   image: "/assets/talkshow/20.webp",
+    // },
   ],
   events: {
     title: "IT Talkshow",
     place: "Aula Gedung C",
     time: "08.00 WIB - 12.30 WIB",
-    date: "Senin, 21 Oktober 2024",
+    date: "Senin, 24 November 2025",
   },
 };
 
@@ -69,7 +76,7 @@ export const dataWorkshop = {
   heroDescription: `IT Workshop ini menjembatani antara potensi Generasi Z dan kekuatan AI untuk menciptakan masa depan 
                 yang berkelanjutan. Peserta akan dibekali wawasan dan alat untuk mentransformasi ide-ide 
                 inovatif menjadi solusi lingkungan yang nyata dan terukur di era digital.`,
-  linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSd-_uzd87ai-huDpO8xqT6rWtwIIrJm-6iy0CluS07t-tCLfQ/viewform",
+  linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSf-d10tv8DRY19Z0ZelCsAIOF6-qK9mKcCZQM6_SpwtAsUHOw/viewform?usp=preview",
   image: "/assets/Maskot-Workshop.png",
   aboutTitle: "Tentang IT Workshop",
   aboutDescription: `Workshop “AI for a Sustainable Future: The Role of Z Generation in the Digital Era” ini didesain khusus untuk Generasi Z, 
@@ -82,21 +89,21 @@ export const dataWorkshop = {
     //   position: "Website Development",
     //   image: "/assets/workshop/14.webp",
     // },
-    {
-      name: "Lhuqita Fazry",
-      position: "Mobile Development",
-      image: "assets/workshop/16.webp",
-    },
-    {
-      name: "Dwi Hartanto",
-      position: "Artificial Intelegence",
-      image: "assets/workshop/15.webp",
-    },
-    {
-      name: "Tohirin",
-      position: "Cyber Security",
-      image: "assets/workshop/17.webp",
-    },
+    // {
+    //   name: "Lhuqita Fazry",
+    //   position: "Mobile Development",
+    //   image: "assets/workshop/16.webp",
+    // },
+    // {
+    //   name: "Dwi Hartanto",
+    //   position: "Artificial Intelegence",
+    //   image: "assets/workshop/15.webp",
+    // },
+    // {
+    //   name: "Tohirin",
+    //   position: "Cyber Security",
+    //   image: "assets/workshop/17.webp",
+    // },
   ],
   events: [
     // {

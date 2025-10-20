@@ -30,12 +30,12 @@ const DescComp = () => {
               data-aos-delay="450"
               className="text-center text-sm md:text-base lg:text-[1.35rem] sm:leading-[1.5rem] lg:leading-[2rem] text-slate-600"
             >
-              Kompetisi atau perlombaan yang ada dalam kegiatan INVOFEST
-              (Infomatics Vocational Festival) 2025 adalah diantaranya National
-              UI UX Design Competition, Software Development Competition, dan
+              Kompetisi atau perlombaan yang ada dalam kegiatan <b>INVOFEST
+              (Infomatics Vocational Festival) 2025</b> adalah diantaranya National
+              Poster Design Competition, UI UX Design Competition, dan
               juga UI/UX Design Competition. Kompetisi dalam INVOFEST ini
-              mengusung tema "AI Challenge: Gen Z's Quest for Digital
-              Sustainability" Tema ini bertujuan mengajak generasi muda untuk
+              mengusung tema <b>“From Creation to Innovation”</b>
+               Tema ini bertujuan mengajak generasi muda untuk
               mengembangkan inovasi dan kreativitas guna membentuk kelompok yang
               memiliki potensi luar biasa, yang mampu mewujudkan masa depan yang
               berkelanjutan. Melalui pendekatan ini, diharapkan generasi ini

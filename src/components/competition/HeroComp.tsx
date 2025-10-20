@@ -29,15 +29,15 @@ const HeroComp = () => {
                 data-aos-delay="450"
                 className="font-semibold text-invofest text-xl sm:text-2xl lg:text-3xl"
               >
-                "AI Challenge: Gen Z's Quest for Digital Sustainability"
+                "From Creation to Innovation"
               </h1>
               <p
                 data-aos="fade-right"
                 data-aos-delay="550"
                 className="text-sm md:text-base lg:text-[1.35rem] sm:leading-[1.5rem] lg:leading-[2rem] text-slate-600"
               >
-                Kompetisi dalam INVOFEST ini mengusung tema "AI Challenge: Gen
-                Z's Quest for Digital Sustainability", Tema ini bertujuan
+                Kompetisi dalam INVOFEST ini mengusung tema <b>“From Creation to Innovation”</b>, 
+                Tema ini bertujuan
                 mengajak generasi muda untuk mengembangkan inovasi dan
                 kreativitas guna membentuk kelompok yang memiliki potensi luar
                 biasa, yang mampu mewujudkan masa depan yang berkelanjutan.

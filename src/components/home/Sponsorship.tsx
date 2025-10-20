@@ -33,26 +33,26 @@ export function Sponsorship() {
 const sponsorLogo = [
   {
     id: 1,
-    img_path: "/assets/sponsor/big_berry.png",
+    img_path: "/assets/LOGO 1.png",
   },
-  {
-    id: 2,
-    img_path: "/assets/sponsor/indo_print.jpg",
-  },
-  {
-    id: 3,
-    img_path: "/assets/sponsor/bahari_inn.jpg",
-  },
-  {
-    id: 4,
-    img_path: "/assets/sponsor/dicoding_official.png",
-  },
-  {
-    id: 5,
-    img_path: "/assets/sponsor/plaza_hotel_tegal.jpg",
-  },
-  {
-    id: 6,
-    img_path: "/assets/sponsor/gilang.jpg",
-  },
+  // {
+  //   id: 2,
+  //   img_path: "/assets/sponsor/indo_print.jpg",
+  // },
+  // {
+  //   id: 3,
+  //   img_path: "/assets/sponsor/bahari_inn.jpg",
+  // },
+  // {
+  //   id: 4,
+  //   img_path: "/assets/sponsor/dicoding_official.png",
+  // },
+  // {
+  //   id: 5,
+  //   img_path: "/assets/sponsor/plaza_hotel_tegal.jpg",
+  // },
+  // {
+  //   id: 6,
+  //   img_path: "/assets/sponsor/gilang.jpg",
+  // },
 ];

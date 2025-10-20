@@ -37,38 +37,38 @@ const mediaPartner = [
   },
   {
     id: 2,
-    img_path: "/assets/media_partner/csrelatedcomp.jpg",
+    img_path: "/assets/media_partner/LOGO HIMAPIK.jpg",
   },
-  {
-    id: 3,
-    img_path: "/assets/media_partner/kompetisi_mahasiswa.png",
-  },
-  {
-    id: 4,
-    img_path: "/assets/media_partner/lomba_sma.png",
-  },
-  {
-    id: 5,
-    img_path: "/assets/media_partner/mitra_lomba.jpg",
-  },
-  {
-    id: 6,
-    img_path: "/assets/media_partner/lomba_nasional.jpg",
-  },
-  {
-    id: 7,
-    img_path: "/assets/media_partner/permikomnas.png",
-  },
-  {
-    id: 8,
-    img_path: "/assets/media_partner/HimaASP.png",
-  },
-  {
-    id: 9,
-    img_path: "/assets/media_partner/HimaTekom.jpg",
-  },
-  {
-    id: 10,
-    img_path: "/assets/media_partner/LogoSemata.png",
-  },
+  // {
+  //   id: 3,
+  //   img_path: "/assets/media_partner/kompetisi_mahasiswa.png",
+  // },
+  // {
+  //   id: 4,
+  //   img_path: "/assets/media_partner/lomba_sma.png",
+  // },
+  // {
+  //   id: 5,
+  //   img_path: "/assets/media_partner/mitra_lomba.jpg",
+  // },
+  // {
+  //   id: 6,
+  //   img_path: "/assets/media_partner/lomba_nasional.jpg",
+  // },
+  // {
+  //   id: 7,
+  //   img_path: "/assets/media_partner/permikomnas.png",
+  // },
+  // {
+  //   id: 8,
+  //   img_path: "/assets/media_partner/HimaASP.png",
+  // },
+  // {
+  //   id: 9,
+  //   img_path: "/assets/media_partner/HimaTekom.jpg",
+  // },
+  // {
+  //   id: 10,
+  //   img_path: "/assets/media_partner/LogoSemata.png",
+  // },
 ];

@@ -33,8 +33,7 @@ const HeroHome = () => {
                 Invofest (Informatics Vocational Festival) adalah festival
                 tahunan yang bertujuan untuk menginspirasi dan memberdayakan
                 generasi muda Indonesia dalam menghadapi era digital. Dengan
-                mengusung tema “AI for a Sustainable Future: The Role of
-                Generation Z in the Digital Era”.
+                mengusung tema <b>“Beyond Limits, Beyond Intelligence: Innovate for a Smarter Tomorrow ”</b>.
               </p>
               <div className="flex items-center gap-3 sm:gap-4 lg:gap-5 mt-3">
                 <ButtonPrimary

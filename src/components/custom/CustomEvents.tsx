@@ -51,7 +51,7 @@ const CustomEvents = ({ title, place, time, date }: CustomEventsProps) => {
 
             <CardEvents
               delay={2000}
-              place={"Politeknik Harapan Bersama"}
+              place={"Kampus 2 (Mataram) Universitas Harkat Negeri"}
               icon={<FaBuilding className="inline text-3xl text-white" />}
             />
           </div>

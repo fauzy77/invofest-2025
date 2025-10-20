@@ -28,11 +28,9 @@ const ITSeminarSec = () => {
                 data-aos-delay="300"
                 className="text-sm md:text-base lg:text-[1.35rem] sm:leading-[1.5rem] lg:leading-[2rem] text-slate-600"
               >
-                Seminar berskala nasional yang membahas seputar teknologi
-                informasi dan bertujuan untuk mengembangkan potensi diri serta
-                meningkatkan pengetahuan di bidang teknologi informasi yang
-                mengangkat tema "The Synergy of AI and Gen Z: Shaping a
-                Sustainable Digital Future".
+                Seminar Nasional Teknologi Informasi ini mengangkat tema <b>"Human-AI Integration: Merancang Arsitektur Kolaboratif, Bukan Kompetitif.”</b>
+                Kami bertujuan untuk menggeser fokus dari ketakutan akan kompetisi menjadi eksplorasi peluang kolaborasi. Seminar ini akan mengupas tuntas bagaimana kita dapat merancang sistem, 
+                etika, dan lingkungan kerja di mana AI berfungsi sebagai mitra yang memperkuat kecerdasan, kreativitas, dan produktivitas manusia—bukan sebagai pengganti.
               </p>
               <div className="flex items-center gap-3 sm:gap-4 lg:gap-5 mt-3">
                 <ButtonPrimary

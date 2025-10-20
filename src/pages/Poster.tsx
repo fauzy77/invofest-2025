@@ -36,19 +36,34 @@ const Poster: React.FC = () => {
             <p className="text-sm md:text-base lg:text-[1.35rem] sm:leading-[1.5rem] lg:leading-[2rem] text-slate-600">
               “From Creation to Innovation”
             </p>
-            <p className="text-slate-500">Kamis, 1 November 2025</p>
+            <p className="text-slate-500">Kamis, 27 November 2025</p>
 
             <div className="space-y-3 mt-5">
               <div className="bg-[#FFC0D3] border border-[#852e4e] text-center rounded-md py-3 font-semibold">
                 Biaya Pendaftaran Gelombang 1: Rp. 50.000
               </div>
-              <button className="w-full bg-[#852e4e] hover:bg-[#4c1d3d] text-white font-semibold py-3 rounded-md transition duration-200">
-                Register
-              </button>
-              <button className="w-full border border-[#852e4e] text-[#852e4e] font-semibold py-3 rounded-md hover:bg-[#FFC0D3] transition duration-200">
+
+              {/* Tombol Register */}
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScdjXXvLnnlLlOTgpn4SP-oMkvUfBXO0gcJeEr8Oa9-fDuh1Q/viewform?usp=preview"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-[#852e4e] hover:bg-[#4c1d3d] text-white font-semibold py-3 rounded-md text-center transition duration-200"
+              >
+                Registrasi
+              </a>
+
+              {/* Tombol Guidebook */}
+              <a
+                href="https://drive.google.com/drive/folders/1vOIIfJinlm5aalbp3QDbiTVn8DQSh43K?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full border border-[#852e4e] text-[#852e4e] font-semibold py-3 rounded-md text-center hover:bg-[#FFC0D3] transition duration-200"
+              >
                 Guidebook
-              </button>
+              </a>
             </div>
+
           </div>
         </section>
 
@@ -81,7 +96,7 @@ const Poster: React.FC = () => {
               </p>
 
               <p>
-                Tahun ini, lomba mengusung tema “From Creation to Innovation”, yang menggambarkan proses perjalanan dari menciptakan
+                Tahun ini, lomba mengusung tema <b>“From Creation to Innovation”</b>, yang menggambarkan proses perjalanan dari menciptakan
                 ide hingga mengubahnya menjadi inovasi yang memiliki nilai dan dampak nyata bagi masyarakat. Melalui tema ini, peserta
                 diharapkan dapat menuangkan gagasan kreatif mereka dalam bentuk visual yang tidak hanya menarik secara estetika, tetapi
                 juga mengandung pesan yang kuat, relevan, dan mendorong semangat inovasi di bidang teknologi dan kehidupan sosial.
@@ -108,9 +123,21 @@ const Poster: React.FC = () => {
 
             <div className="flex flex-wrap justify-center gap-8">
               {[
-                { title: "Juara I", prize: "Rp. 500.000" },
-                { title: "Juara II", prize: "Rp. 400.000" },
-                { title: "Juara III", prize: "Rp. 300.000" },
+                {
+                  title: "Juara I",
+                  prize: "Rp. 500.000",
+                  bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                },
+                {
+                  title: "Juara II",
+                  prize: "Rp. 400.000",
+                  bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                },
+                {
+                  title: "Juara III",
+                  prize: "Rp. 300.000",
+                  bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -120,12 +147,22 @@ const Poster: React.FC = () => {
                 >
                   <div className="text-5xl mb-3 text-[#852e4e]">🏆</div>
                   <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-slate-600 mt-2">{item.prize}</p>
+                  <p className="text-slate-600 mt-2 font-medium">{item.prize}</p>
+
+                  {/* Bonus tambahan seperti Trophy & Sertifikat */}
+                  {item.bonus.length > 0 && (
+                    <ul className="mt-3 text-sm text-slate-600 space-y-1">
+                      {item.bonus.map((bonus, i) => (
+                        <li key={i}>{bonus}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </section>
+
 
         {/* TIMELINE EVENT */}
         <section className="bg-invofest_secondary w-full relative overflow-hidden">
@@ -144,7 +181,7 @@ const Poster: React.FC = () => {
               <div className="absolute left-1/2 top-0 bottom-0 w-[4px] bg-[#852e4e]/25 -translate-x-1/2"></div>
 
               {[
-                { title: "Pendaftaran Gelombang 1", date: "20–31 Oktober" },
+                { title: "Pendaftaran Gelombang 1", date: "21–31 Oktober" },
                 { title: "Pengumpulan Karya Gelombang 1", date: "31 Oktober" },
                 { title: "Pendaftaran Gelombang 2", date: "1–15 November" },
                 { title: "Pengumpulan Karya Gelombang 2", date: "15 November" },
@@ -157,14 +194,12 @@ const Poster: React.FC = () => {
                   key={index}
                   data-aos="zoom-in-up"
                   data-aos-delay={index * 150}
-                  className={`relative w-full md:w-[45%] flex flex-col items-center ${
-                    index % 2 === 0 ? "md:items-end text-right" : "md:items-start text-left"
-                  }`}
+                  className={`relative w-full md:w-[45%] flex flex-col items-center ${index % 2 === 0 ? "md:items-end text-right" : "md:items-start text-left"
+                    }`}
                 >
                   <div
-                    className={`absolute top-1/2 w-5 h-5 bg-[#852e4e] border-4 border-[#FFC0D3] rounded-full shadow-md ${
-                      index % 2 === 0 ? "md:right-[-1.6rem]" : "md:left-[-1.6rem]"
-                    } transform -translate-y-1/2`}
+                    className={`absolute top-1/2 w-5 h-5 bg-[#852e4e] border-4 border-[#FFC0D3] rounded-full shadow-md ${index % 2 === 0 ? "md:right-[-1.6rem]" : "md:left-[-1.6rem]"
+                      } transform -translate-y-1/2`}
                   ></div>
 
                   <div className="bg-white border border-[#852e4e] px-6 py-5 rounded-xl shadow-md hover:scale-105 transition duration-300 w-full md:w-[80%]">
@@ -181,10 +216,10 @@ const Poster: React.FC = () => {
         </section>
       </div>
       {/* FAQ Section */}
-        <FAQ />
+      <FAQ />
 
-        {/* Sponsorship */}
-        <Sponsorship />
+      {/* Sponsorship */}
+      <Sponsorship />
 
       {/* MEDIA PARTNER */}
       <MediaPartner />

@@ -23,7 +23,7 @@ const WebdesignCompetition: React.FC = () => {
                         className="w-full md:w-1/2 flex justify-center"
                     >
                         <img
-                            src="/assets/competition-card/poster.png"
+                            src="/assets/competition-card/web_design.png"
                             alt="UI/UX Design"
                             className="rounded-2xl w-[350px] shadow-lg"
                         />
@@ -36,21 +36,32 @@ const WebdesignCompetition: React.FC = () => {
                         <p className="text-sm md:text-base lg:text-[1.35rem] sm:leading-[1.5rem] lg:leading-[2rem] text-slate-600">
                             “From Creation to Innovation”
                         </p>
-                        <p className="text-slate-500">Kamis, 1 November 2025</p>
+                        <p className="text-slate-500">Kamis, 27 November 2025</p>
 
                         <div className="space-y-3 mt-5">
                             <div className="bg-[#FFC0D3] border border-[#852e4e] text-center rounded-md py-3 font-semibold">
                                 Biaya Pendaftaran Gelombang 1: Rp. 50.000
                             </div>
-                            <button className="w-full bg-[#852e4e] hover:bg-[#4c1d3d] text-white font-semibold py-3 rounded-md transition duration-200">
-                                Register
-                            </button>
-                            <a href="HTTPS://INSTAGRAM.COM">
-                                <button className="w-full border border-[#852e4e] text-[#852e4e] font-semibold py-3 rounded-md hover:bg-[#FFC0D3] transition duration-200">
-                                Guidebook
-                            </button>
+                            {/* Tombol Register */}
+                            <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScVgBhnxdHi55I_H-egoeIaIxn-0I3yj4CCK9FXKUieAJ3A0A/viewform?usp=preview"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block w-full bg-[#852e4e] hover:bg-[#4c1d3d] text-white font-semibold py-3 rounded-md text-center transition duration-200"
+                            >
+                                Registrasi
                             </a>
-                            
+
+                            {/* Tombol Guidebook */}
+                            <a
+                                href="https://drive.google.com/drive/folders/1suvD65_gH7koaejynEev8DwV6vF9KNSc?usp=drive_link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block w-full border border-[#852e4e] text-[#852e4e] font-semibold py-3 rounded-md text-center hover:bg-[#FFC0D3] transition duration-200"
+                            >
+                                Guidebook
+                            </a>
+
                         </div>
                     </div>
                 </section>
@@ -84,14 +95,14 @@ const WebdesignCompetition: React.FC = () => {
                             </p>
 
                             <p>
-                                Lomba ini mengusung tema “From Creation to Innovation”, yang bertujuan untuk mendorong generasi muda 
-                                agar tidak hanya berhenti pada tahap menciptakan ide, tetapi juga mampu mengembangkannya menjadi inovasi 
-                                yang bernilai dan berdampak nyata. Melalui tema ini, peserta diharapkan dapat menciptakan desain web yang 
+                                Lomba ini mengusung tema “From Creation to Innovation”, yang bertujuan untuk mendorong generasi muda
+                                agar tidak hanya berhenti pada tahap menciptakan ide, tetapi juga mampu mengembangkannya menjadi inovasi
+                                yang bernilai dan berdampak nyata. Melalui tema ini, peserta diharapkan dapat menciptakan desain web yang
                                 tidak hanya menarik secara visual, tetapi juga inovatif, fungsional, dan relevan dengan kebutuhan masyarakat di era digital.
                             </p>
 
                             <p>
-                                Dengan semangat kreativitas dan inovasi, kompetisi ini menjadi wadah bagi mahasiswa/i untuk menunjukkan kemampuan terbaiknya 
+                                Dengan semangat kreativitas dan inovasi, kompetisi ini menjadi wadah bagi mahasiswa/i untuk menunjukkan kemampuan terbaiknya
                                 dalam merancang karya digital yang berdaya saing serta berkontribusi terhadap kemajuan teknologi informasi di masa depan.
                             </p>
                         </div>
@@ -105,8 +116,8 @@ const WebdesignCompetition: React.FC = () => {
                 </section>
 
                 {/* KATEGORI HADIAH */}
-                <section className="py-9 bg-white">
-                    <div className="max-w-screen-xl mx-auto px-11 text-center">
+                <section className="py-16 bg-white">
+                    <div className="max-w-screen-xl mx-auto px-6 text-center">
                         <h2
                             data-aos="zoom-in"
                             className="text-2xl md:text-3xl font-bold text-[#852e4e] mb-8"
@@ -114,21 +125,42 @@ const WebdesignCompetition: React.FC = () => {
                             KATEGORI HADIAH
                         </h2>
 
-                        <div className="flex flex-wrap justify-center gap-11">
+                        <div className="flex flex-wrap justify-center gap-8">
                             {[
-                                { title: "Juara I", prize: "Rp. 500.000" },
-                                { title: "Juara II", prize: "Rp. 400.000" },
-                                { title: "Juara III", prize: "Rp. 300.000" },
+                                {
+                                    title: "Juara I",
+                                    prize: "Rp. 500.000",
+                                    bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                                },
+                                {
+                                    title: "Juara II",
+                                    prize: "Rp. 400.000",
+                                    bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                                },
+                                {
+                                    title: "Juara III",
+                                    prize: "Rp. 300.000",
+                                    bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                                },
                             ].map((item, index) => (
                                 <div
                                     key={index}
                                     data-aos="fade-up"
                                     data-aos-delay={index * 150}
-                                    className="w-[350px]  border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+                                    className="w-[220px] border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
                                 >
                                     <div className="text-5xl mb-3 text-[#852e4e]">🏆</div>
                                     <h3 className="font-semibold text-lg">{item.title}</h3>
-                                    <p className="text-slate-600 mt-2">{item.prize}</p>
+                                    <p className="text-slate-600 mt-2 font-medium">{item.prize}</p>
+
+                                    {/* Bonus tambahan seperti Trophy & Sertifikat */}
+                                    {item.bonus.length > 0 && (
+                                        <ul className="mt-3 text-sm text-slate-600 space-y-1">
+                                            {item.bonus.map((bonus, i) => (
+                                                <li key={i}>{bonus}</li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -152,7 +184,7 @@ const WebdesignCompetition: React.FC = () => {
                             <div className="absolute left-1/2 top-0 bottom-0 w-[4px] bg-[#852e4e]/25 -translate-x-1/2"></div>
 
                             {[
-                                { title: "Pendaftaran Gelombang 1", date: "20–31 Oktober" },
+                                { title: "Pendaftaran Gelombang 1", date: "21–31 Oktober" },
                                 { title: "Pengumpulan Karya Gelombang 1", date: "31 Oktober" },
                                 { title: "Pendaftaran Gelombang 2", date: "1–15 November" },
                                 { title: "Pengumpulan Karya Gelombang 2", date: "15 November" },
