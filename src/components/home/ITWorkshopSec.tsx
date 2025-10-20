@@ -29,11 +29,10 @@ const ITWorkshopSec = () => {
                 data-aos-delay="300"
                 className="text-sm md:text-base lg:text-[1.35rem] sm:leading-[1.5rem] lg:leading-[2rem] text-slate-600"
               >
-                Workshop "Hands-On AI: Equipping Gen Z with Tools for a
-                Sustainable Digital Future” akan membekali Generasi Z dengan
-                keterampilan praktis dalam AI untuk menciptakan solusi
-                berkelanjutan. Peserta akan belajar langsung menggunakan
-                teknologi ini untuk masa depan yang lebih ramah lingkungan.
+                Workshop "AI for a Sustainable Future: The Role of Z Generation in the Digital Era” 
+                ini menjembatani antara potensi Generasi Z dan kekuatan AI untuk menciptakan masa depan 
+                yang berkelanjutan. Peserta akan dibekali wawasan dan alat untuk mentransformasi ide-ide 
+                inovatif menjadi solusi lingkungan yang nyata dan terukur di era digital.
               </p>
               <div className="flex items-center gap-3 sm:gap-4 lg:gap-5 mt-3">
                 <ButtonPrimary

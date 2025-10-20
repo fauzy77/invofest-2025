@@ -37,12 +37,10 @@ const ListComp = () => {
             <CompetitionCard
               dataAos="fade-up"
               delayAos="200"
-              TitleCard="Software Dev Competition"
-              DescCard="Software Development Competition ini adalah kompetisi untuk
-            menciptakan suatu produk berbentuk perangkat lunak (software) yang
-            bermanfaat untuk memberikan solusi bagi permasalahan yang ada
-            sekarang ini."
+              TitleCard="Poster Design Competition"
+              DescCard="Poster Design Competition ini adalah kompetisi untuk menciptakan suatu karya dalam bentuk poster digital yang komunikatif dan inspiratif, guna menyuarakan gagasan atau solusi visual terhadap permasalahan yang ada sekarang ini."
               ImageCard={SoftwareDevImg}
+              linkRedirect="/competition/poster"
               linkGuideBook="https://drive.google.com/drive/folders/1LDpU9sUieKJuapFYqY0TUBkwV0VBFfWG?usp=drive_link"
               linkReg="https://forms.gle/dr9rZytG9fcBPLbr8"
               linkPengumpulan="https://docs.google.com/forms/d/e/1FAIpQLScRiJofrgYoXJC7BW5XPThT6OO7muih_NueogtsYBs3bQZHGg/viewform"
@@ -53,10 +51,10 @@ const ListComp = () => {
               TitleCard="UI/UX Design Competition"
               DescCard="UI/UX Design Competition ini adalah kompetisi untuk menciptakan dan merancang inovasi sebuah produk digital yang dapat berupa website maupun mobile apps serta dapat membuat nyaman calon pengguna."
               ImageCard={UiUxImg}
+              linkRedirect="/competition/ui-ux"
               linkGuideBook="https://drive.google.com/drive/folders/10UWXXBV-XUts1rv0ww7FBE1lQ1l8EH5u?usp=drive_link"
               linkReg="https://forms.gle/ZCpEAKWis7nYrQeN6"
-              linkPengumpulan="https://docs.google.com/forms/d/e/1FAIpQLSdgWdJru8KiJWqkWJej9wVMlwnpMGurFtPZdJmjABO62TWM-g/viewform"
-            />
+              linkPengumpulan="https://docs.google.com/forms/d/e/1FAIpQLSdgWdJru8KiJWqkWJej9wVMlwnpMGurFtPZdJmjABO62TWM-g/viewform"       />
             <CompetitionCard
               dataAos="fade-up"
               delayAos="600"
@@ -64,6 +62,7 @@ const ListComp = () => {
               DescCard="Web Design Competition ini adalah kompetisi untuk
               menciptakan suatu perangkat lunak berbasis website yang menggunakan desain menarik, unik, dan responsive pada semua device serta sesuai dengan tema kompetisi."
               ImageCard={WebDesignImg}
+              linkRedirect="/competition/web-design"
               linkGuideBook="https://drive.google.com/drive/folders/1YjXlJWCw9lMBjT26EK8xmDsDdeCwHnWh?usp=drive_link"
               linkReg="https://forms.gle/abYz7k5QY8g7V6Bu9"
               linkPengumpulan="https://docs.google.com/forms/d/e/1FAIpQLSdOWzo23l4AuOpf_F1oDyrCf8yI2G6lWYN9DsFX05lGiKZn1g/viewform"

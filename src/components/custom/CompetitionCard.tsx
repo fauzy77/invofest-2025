@@ -1,16 +1,16 @@
 import React from "react";
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonPrimary from './ButtonPrimary';
 import AOS from "aos";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "../ui/dialog";
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogDescription,
+//   DialogFooter,
+//   DialogHeader,
+//   DialogTitle,
+// } from "../ui/dialog";
 import { Link } from "react-router-dom";
-import { FaBook } from "react-icons/fa6";
+// import { FaBook } from "react-icons/fa6";
 // import { FaTrophy } from "react-icons/fa6";
 // import { IoSend } from "react-icons/io5";
 
@@ -23,6 +23,7 @@ type compCard = {
   linkGuideBook: string;
   linkReg: string;
   linkPengumpulan: string;
+  linkRedirect: string;
 };
 
 const CompetitionCard = ({
@@ -31,11 +32,12 @@ const CompetitionCard = ({
   ImageCard,
   dataAos,
   delayAos,
-  linkGuideBook
+  // linkGuideBook,
+  linkRedirect
   // linkReg,
   // linkPengumpulan
 }: compCard) => {
-  const [openDialog, setOpenDialog] = React.useState<boolean>(false);
+  // const [openDialog, setOpenDialog] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     AOS.init({
@@ -47,7 +49,7 @@ const CompetitionCard = ({
   return (
     <React.Fragment>
       {/* Dialog Popup */}
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+      {/* <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle className="text-2xl">{TitleCard}</DialogTitle>
@@ -64,7 +66,7 @@ const CompetitionCard = ({
               >
                 <FaBook />
                 <span className="relative z-10">GUIDEBOOK & PERLENGKAPAN</span>
-              </Link>
+              </Link> */}
 
 
 
@@ -90,10 +92,10 @@ const CompetitionCard = ({
 
 
 
-            </div>
+            {/* </div>
           </DialogFooter>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
 
       <div
         data-aos={dataAos}
@@ -114,13 +116,22 @@ const CompetitionCard = ({
           <p className="text-sm sm:text-base mb-3 font-normal text-slate-600">
             {DescCard}
           </p>
-          <ButtonPrimary
-            text={"INFO SELENGKAPNYA"}
-            dataAos={""}
-            delayAos={""}
-            isOutline={false}
-            handleClick={() => setOpenDialog(true)}
-          />
+          
+
+          <Link to={linkRedirect} target="_blank" rel="noopener noreferrer">
+            <ButtonPrimary
+              text="INFO SELENGKAPNYA"
+              dataAos=""
+              delayAos=""
+              isOutline={false}
+            />
+          </Link>
+            
+          
+            
+           
+
+          
         </div>
       </div>
     </React.Fragment>

@@ -62,7 +62,7 @@ const HeroSeminar = () => {
                   handleClick={() =>
                     window.open(
                       `https://wa.me/62895605919551?text=${encodeURIComponent(
-                        "Halo Kak, Saya Ingin Bertanya..."
+                        "Halo Kak, Saya Ingin Bertanya mengenai Invofest 2025..."
                       )}`
                     )
                   }

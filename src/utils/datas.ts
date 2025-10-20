@@ -65,19 +65,23 @@ export const dataTalkshow = {
 export const dataWorkshop = {
   heroTitle: "IT Workshop",
   subtitle:
-    "“Hands-On AI: Equipping Gen Z with Tools for a Sustainable Digital Future”",
-  heroDescription: `IT Workshop ini dirancang untuk membekali Gen Z dengan keterampilan kecerdasan buatan (AI) yang akan mendukung terciptanya masa depan digital yang berkelanjutan. Melalui kegiatan ini, kami berharap para peserta dapat mengembangkan potensi diri dan memperdalam pengetahuan di bidang teknologi informasi.`,
+    "“AI for a Sustainable Future: The Role of Z Generation in the Digital Era”",
+  heroDescription: `IT Workshop ini menjembatani antara potensi Generasi Z dan kekuatan AI untuk menciptakan masa depan 
+                yang berkelanjutan. Peserta akan dibekali wawasan dan alat untuk mentransformasi ide-ide 
+                inovatif menjadi solusi lingkungan yang nyata dan terukur di era digital.`,
   linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSd-_uzd87ai-huDpO8xqT6rWtwIIrJm-6iy0CluS07t-tCLfQ/viewform",
   image: "/assets/Maskot-Workshop.png",
   aboutTitle: "Tentang IT Workshop",
-  aboutDescription: `IT Workshop “Hands-On AI: Equipping Gen Z with Tools for a Sustainable Digital Future” adalah kegiatan yang bertujuan untuk membekali generasi muda dengan keterampilan praktis di bidang kecerdasan buatan (AI). Melalui sesi hands-on, peserta akan diperkenalkan pada berbagai alat dan teknik AI yang dapat digunakan untuk menghadapi tantangan di era digital, sekaligus mendorong terciptanya masa depan yang lebih berkelanjutan.
-Acara ini dirancang untuk memberikan pengalaman belajar yang interaktif, di mana peserta dapat langsung menerapkan pengetahuan yang didapat dalam proyek nyata. Workshop ini juga menjadi kesempatan bagi Gen Z untuk mengeksplorasi potensi mereka di bidang teknologi informasi dan berkontribusi secara positif dalam perkembangan teknologi.`,
+  aboutDescription: `Workshop “AI for a Sustainable Future: The Role of Z Generation in the Digital Era” ini didesain khusus untuk Generasi Z, 
+  para digital natives yang berada di persimpangan antara inovasi teknologi dan tantangan keberlanjutan global. 
+  Peserta akan diajak untuk menyelami bagaimana Kecerdasan Buatan (AI) bukan hanya sekadar teknologi canggih, tetapi juga alat yang ampuh untuk menciptakan solusi nyata bagi isu-isu lingkungan. 
+  Melalui sesi inspiratif, pengenalan konsep, dan praktik langsung (hands-on), workshop ini bertujuan memberdayakan Gen Z untuk menjadi agen perubahan di era digital, menggunakan keahlian mereka untuk masa depan bumi yang lebih baik.`,
   speakers: [
-    {
-      name: "Nur Ichsan",
-      position: "Website Development",
-      image: "/assets/workshop/14.webp",
-    },
+    // {
+    //   name: "Nur Ichsan",
+    //   position: "Website Development",
+    //   image: "/assets/workshop/14.webp",
+    // },
     {
       name: "Lhuqita Fazry",
       position: "Mobile Development",
@@ -95,31 +99,31 @@ Acara ini dirancang untuk memberikan pengalaman belajar yang interaktif, di mana
     },
   ],
   events: [
+    // {
+    //   id: 1,
+    //   title: "Web Development",
+    //   date: "Selasa, 22 Oktober 2024",
+    //   place: "Lab Kom D.2",
+    //   time: "08.00 WIB - 16.30 WIB",
+    // },
     {
       id: 1,
-      title: "Web Development",
-      date: "Selasa, 22 Oktober 2024",
-      place: "Lab Kom D.2",
-      time: "08.00 WIB - 16.30 WIB",
-    },
-    {
-      id: 2,
       title: "Mobile Development",
-      date: "Rabu, 23 Oktober 2024",
+      date: "Selasa, 25 November 2025",
       place: "Lab Kom D.1",
       time: "08.00 WIB - 16.30 WIB",
     },
     {
-      id: 3,
+      id: 2,
       title: "Artificial Intelegence",
-      date: "Rabu, 23 Oktober 2024",
+      date: "Selasa, 25 November 2025",
       place: "Lab Kom D.2",
       time: "08.00 WIB - 16.30 WIB",
     },
     {
-      id: 4,
+      id: 3,
       title: "Cyber Security",
-      date: "Selasa, 22 Oktober 2024",
+      date: "Rabu, 26 November 2025",
       place: "Lab Kom D.1",
       time: "08.00 WIB - 16.30 WIB",
     },
