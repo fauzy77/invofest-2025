@@ -7,7 +7,7 @@ import { MediaPartner } from "@/components/competition/MediaPartner";
 import FAQ from "@/components/home/FAQ";
 import { Sponsorship } from "@/components/home/Sponsorship";
 
-const UIDesignCompetition: React.FC = () => {
+const WebdesignCompetition: React.FC = () => {
     useEffect(() => {
         AOS.init({ duration: 1200, once: true });
     }, []);
@@ -45,9 +45,12 @@ const UIDesignCompetition: React.FC = () => {
                             <button className="w-full bg-[#852e4e] hover:bg-[#4c1d3d] text-white font-semibold py-3 rounded-md transition duration-200">
                                 Register
                             </button>
-                            <button className="w-full border border-[#852e4e] text-[#852e4e] font-semibold py-3 rounded-md hover:bg-[#FFC0D3] transition duration-200">
+                            <a href="HTTPS://INSTAGRAM.COM">
+                                <button className="w-full border border-[#852e4e] text-[#852e4e] font-semibold py-3 rounded-md hover:bg-[#FFC0D3] transition duration-200">
                                 Guidebook
                             </button>
+                            </a>
+                            
                         </div>
                     </div>
                 </section>
@@ -102,8 +105,8 @@ const UIDesignCompetition: React.FC = () => {
                 </section>
 
                 {/* KATEGORI HADIAH */}
-                <section className="py-16 bg-white">
-                    <div className="max-w-screen-xl mx-auto px-6 text-center">
+                <section className="py-9 bg-white">
+                    <div className="max-w-screen-xl mx-auto px-11 text-center">
                         <h2
                             data-aos="zoom-in"
                             className="text-2xl md:text-3xl font-bold text-[#852e4e] mb-8"
@@ -111,7 +114,7 @@ const UIDesignCompetition: React.FC = () => {
                             KATEGORI HADIAH
                         </h2>
 
-                        <div className="flex flex-wrap justify-center gap-8">
+                        <div className="flex flex-wrap justify-center gap-11">
                             {[
                                 { title: "Juara I", prize: "Rp. 500.000" },
                                 { title: "Juara II", prize: "Rp. 400.000" },
@@ -121,7 +124,7 @@ const UIDesignCompetition: React.FC = () => {
                                     key={index}
                                     data-aos="fade-up"
                                     data-aos-delay={index * 150}
-                                    className="w-[220px] border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+                                    className="w-[350px]  border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
                                 >
                                     <div className="text-5xl mb-3 text-[#852e4e]">🏆</div>
                                     <h3 className="font-semibold text-lg">{item.title}</h3>
@@ -195,4 +198,4 @@ const UIDesignCompetition: React.FC = () => {
     );
 };
 
-export default UIDesignCompetition;
+export default WebdesignCompetition;

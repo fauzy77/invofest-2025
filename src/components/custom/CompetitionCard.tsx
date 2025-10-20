@@ -118,7 +118,10 @@ const CompetitionCard = ({
           </p>
           
 
-          <Link to={linkRedirect} target="_blank" rel="noopener noreferrer">
+          <Link
+            to={linkRedirect}
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })}
+          >
             <ButtonPrimary
               text="INFO SELENGKAPNYA"
               dataAos=""
@@ -126,6 +129,8 @@ const CompetitionCard = ({
               isOutline={false}
             />
           </Link>
+
+
             
           
             

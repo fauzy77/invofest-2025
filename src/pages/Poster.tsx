@@ -7,7 +7,7 @@ import { MediaPartner } from "@/components/competition/MediaPartner";
 import FAQ from "@/components/home/FAQ";
 import { Sponsorship } from "@/components/home/Sponsorship";
 
-const UIDesignCompetition: React.FC = () => {
+const Poster: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1200, once: true });
   }, []);
@@ -192,4 +192,4 @@ const UIDesignCompetition: React.FC = () => {
   );
 };
 
-export default UIDesignCompetition;
+export default Poster;
