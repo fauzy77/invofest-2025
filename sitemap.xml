@@ -9,3 +9,43 @@
     <priority>0.8</priority>
   </url>
 </urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://invofest-harkatnegeri.com/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://invofest-harkatnegeri.com/talkshow</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://invofest-harkatnegeri.com/competition</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://invofest-harkatnegeri.com/seminar</loc>
+    <priority>0.64</priority>
+  </url>
+
+  <url>
+    <loc>https://invofest-harkatnegeri.com/competition/poster</loc>
+    <priority>0.64</priority>
+  </url>
+
+  <url>
+    <loc>https://invofest-harkatnegeri.com/competition/web-design</loc>
+    <priority>0.64</priority>
+  </url>
+
+  <url>
+    <loc>https://invofest-harkatnegeri.com/competition/ui-ux</loc>
+    <priority>0.64</priority>
+  </url>
+
+</urlset>
