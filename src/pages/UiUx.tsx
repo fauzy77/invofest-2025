@@ -125,17 +125,17 @@ const UiUx: React.FC = () => {
               {[
                 {
                   title: "Juara I",
-                  prize: "Rp. 500.000",
+                  prize: "Rp. 1.000.000",
                   bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
                 },
                 {
                   title: "Juara II",
-                  prize: "Rp. 400.000",
+                  prize: "Rp. 750.000",
                   bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
                 },
                 {
                   title: "Juara III",
-                  prize: "Rp. 300.000",
+                  prize: "Rp. 500.000",
                   bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
                 },
               ].map((item, index) => (
