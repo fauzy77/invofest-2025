@@ -59,7 +59,7 @@ const WebdesignCompetition: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="block w-full border border-[#852e4e] text-[#852e4e] font-semibold py-3 rounded-md text-center hover:bg-[#FFC0D3] transition duration-200"
                             >
-                                Guidebook
+                                Dokumen Peserta
                             </a>
 
                         </div>
