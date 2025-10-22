@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://invofest-harkatnegeri.com/sitemap.xml
