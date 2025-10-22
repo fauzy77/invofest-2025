@@ -33,42 +33,42 @@ export function MediaPartner() {
 const mediaPartner = [
   {
     id: 1,
-    img_path: "/assets/media_partner/info_lombait.png",
+    img_path: "/assets/media_partner/BPM PNG.png",
   },
   {
     id: 2,
     img_path: "/assets/media_partner/LOGO HIMAPIK.jpg",
   },
-  // {
-  //   id: 3,
-  //   img_path: "/assets/media_partner/kompetisi_mahasiswa.png",
-  // },
-  // {
-  //   id: 4,
-  //   img_path: "/assets/media_partner/lomba_sma.png",
-  // },
-  // {
-  //   id: 5,
-  //   img_path: "/assets/media_partner/mitra_lomba.jpg",
-  // },
-  // {
-  //   id: 6,
-  //   img_path: "/assets/media_partner/lomba_nasional.jpg",
-  // },
-  // {
-  //   id: 7,
-  //   img_path: "/assets/media_partner/permikomnas.png",
-  // },
-  // {
-  //   id: 8,
-  //   img_path: "/assets/media_partner/HimaASP.png",
-  // },
-  // {
-  //   id: 9,
-  //   img_path: "/assets/media_partner/HimaTekom.jpg",
-  // },
-  // {
-  //   id: 10,
-  //   img_path: "/assets/media_partner/LogoSemata.png",
-  // },
+  {
+    id: 3,
+    img_path: "/assets/media_partner/Logo BEM.png",
+  },
+  {
+    id: 4,
+    img_path: "/assets/media_partner/LOGO HMP D3 DKV.png",
+  },
+  {
+    id: 5,
+    img_path: "/assets/media_partner/LOGO HMP D3 PERHOTELAN.png",
+  },
+  {
+    id: 6,
+    img_path: "/assets/media_partner/logo HMTI UMMUS.png",
+  },
+  {
+    id: 7,
+    img_path: "/assets/media_partner/permikomnas.png",
+  },
+  {
+    id: 8,
+    img_path: "/assets/media_partner/PERMIKOMNAS RI.png",
+  },
+  {
+    id: 9,
+    img_path: "/assets/media_partner/LOGO HMP TEKNIK KOMPUTER .png",
+  },
+  {
+    id: 10,
+    img_path: "/assets/media_partner/logo info lomba IT.png",
+  },
 ];
