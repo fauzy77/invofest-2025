@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import AOS from "aos"; // <-- Dihapus
+// import AOS from "aos"; // <-- Dihapus
 import "aos/dist/aos.css"; // <-- Dihapus
 // Mengaktifkan useNavigate untuk redirect
-import { Link, useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
 
 // Menambahkan interface global untuk window.AOS agar TypeScript tidak error
 declare global {
