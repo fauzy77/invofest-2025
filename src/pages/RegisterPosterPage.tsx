@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SuccessModal from "@/components/common/SuccessModal"; // <-- (1) Import Modal
 
 // --- (2) KONSTANTA SPESIFIK UNTUK FORM INI ---
@@ -11,14 +11,9 @@ const NAMA_LOMBA = "Poster Design";
 const HARGA_LOMBA = 50000;
 
 // --- Tipe Data (Enums) ---
-type JenisKeikutsertaan = "mahasiswa" | "siswa" | "";
 type TipePendaftaran = "tim" | "individu" | "";
 
 // --- Opsi untuk Select ---
-const jenisOptions = [
-  { value: "siswa", label: "Siswa" },
-  { value: "mahasiswa", label: "Mahasiswa" },
-];
 
 const tipeOptions = [
   { value: "individu", label: "Individu" },
@@ -450,7 +445,7 @@ const RegisterUiUxPage: React.FC = () => {
                     Data Umum & Berkas
                   </legend>
                   <InputGroup
-                    label="Asal Sekolah / Perguruan Tinggi"
+                    label="Asal Sekolah"
                     id="asalInstansi"
                     name="asalInstansi"
                     value={formData.asalInstansi}
@@ -458,7 +453,7 @@ const RegisterUiUxPage: React.FC = () => {
                     required
                   />
                   <FileUploadGroup
-                    label="Foto Kartu Pelajar / Mahasiswa"
+                    label="Foto Kartu Pelajar"
                     id="ktm"
                     name="ktm"
                     accept=".pdf"
