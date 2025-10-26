@@ -124,18 +124,8 @@ const UiUx: React.FC = () => {
             <div className="flex flex-wrap justify-center gap-8">
               {[
                 {
-                  title: "Juara I",
-                  prize: "Rp. 1.000.000",
-                  bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
-                },
-                {
-                  title: "Juara II",
-                  prize: "Rp. 750.000",
-                  bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
-                },
-                {
-                  title: "Juara III",
-                  prize: "Rp. 500.000",
+                  title: "Juara 1 - 3",
+                  prize: "Uang pembinaan total jutaan rupiah",
                   bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
                 },
               ].map((item, index) => (
@@ -143,13 +133,12 @@ const UiUx: React.FC = () => {
                   key={index}
                   data-aos="fade-up"
                   data-aos-delay={index * 150}
-                  className="w-[220px] border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+                  className="w-full border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
                 >
                   <div className="text-5xl mb-3 text-[#852e4e]">🏆</div>
                   <h3 className="font-semibold text-lg">{item.title}</h3>
                   <p className="text-slate-600 mt-2 font-medium">{item.prize}</p>
-
-                  {/* Bonus tambahan seperti Trophy & Sertifikat */}
+                
                   {item.bonus.length > 0 && (
                     <ul className="mt-3 text-sm text-slate-600 space-y-1">
                       {item.bonus.map((bonus, i) => (
@@ -160,6 +149,8 @@ const UiUx: React.FC = () => {
                 </div>
               ))}
             </div>
+
+            
           </div>
         </section>
 
