@@ -13,16 +13,16 @@ export const dataSeminar = {
                     Seminar Nasional Teknologi Informasi ini hadir untuk menjawab tantangan itu dengan mengangkat tema "Human-AI Integration: Merancang Arsitektur Kolaboratif, Bukan Kompetitif.”
                     Kami bertujuan untuk menggeser fokus dari ketakutan akan kompetisi menjadi eksplorasi peluang kolaborasi. Seminar ini akan mengupas tuntas bagaimana kita dapat merancang sistem, etika, dan lingkungan kerja di mana AI berfungsi sebagai mitra yang memperkuat kecerdasan, kreativitas, dan produktivitas manusia—bukan sebagai pengganti.`,
   speakers: [
-    // {
-    //   name: "Martin Novela",
-    //   position: "Head Of Product Vokal.ai",
-    //   image: "/assets/seminar/21.webp",
-    // },
-    // {
-    //   name: "Edi Kurniawan",
-    //   position: "Co-Founder PT Indonesia Digital Goldstar",
-    //   image: "/assets/seminar/22.webp",
-    // },
+    {
+      name: "Cooming Soon",
+      position: "AI Strategist & Consultant",
+      image: "/assets/workshop/cooming.png",
+    },
+    {
+      name: "Cooming Soon",
+      position: "Head of AI Solutions at Dicoding",
+      image: "/assets/workshop/cooming.png",
+    },
   ],
   events: {
     title: "IT Seminar",
@@ -45,21 +45,21 @@ export const dataTalkshow = {
                     Untuk menjawab pertanyaan tersebut, kami mempersembahkan talkshow berskala nasional: “Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan.”
                     Acara ini dirancang bukan untuk membahas teknologi sebagai entitas yang dingin dan terpisah, melainkan untuk menggali bagaimana kita dapat menanamkan nilai-nilai kemanusiaan—seperti empati, etika, dan kreativitas—ke dalam inti pengembangan AI. Kami akan mengupas tuntas visi masa depan di mana AI tidak menjadi pesaing, tetapi menjadi mitra kolaboratif yang memperkuat potensi unik manusia.`,
   speakers: [
-    // {
-    //   name: "Nurul Arifiah Gunarsih",
-    //   position: "ex Frontend Developer JD Technology",
-    //   image: "/assets/talkshow/19.webp",
-    // },
-    // {
-    //   name: "Muhamad Zaim Zamzami",
-    //   position: "Programmer PT Pertamina Drill (PDSI)",
-    //   image: "/assets/talkshow/18.webp",
-    // },
-    // {
-    //   name: "Nofi Bayu Darmawan",
-    //   position: "Founder & CEO Komerce",
-    //   image: "/assets/talkshow/20.webp",
-    // },
+    {
+      name: "Cooming Soon",
+      position: "AI Ethicist & Researcher",
+      image: "/assets/workshop/cooming.png",
+    },
+    {
+      name: "cooming Soon",
+      position: "CTO & Co-Founder Arkademi",
+      image: "/assets/workshop/cooming.png",
+    },
+    {
+      name: "cooming Soon",
+      position: "Head of AI Research at Kata.ai",
+      image: "/assets/workshop/cooming.png",
+    },
   ],
   events: {
     title: "IT Talkshow",
@@ -85,25 +85,25 @@ export const dataWorkshop = {
   Melalui sesi inspiratif, pengenalan konsep, dan praktik langsung (hands-on), workshop ini bertujuan memberdayakan Gen Z untuk menjadi agen perubahan di era digital, menggunakan keahlian mereka untuk masa depan bumi yang lebih baik.`,
   speakers: [
     // {
-    //   name: "Nur Ichsan",
+    //   name: "",
     //   position: "Website Development",
     //   image: "/assets/workshop/14.webp",
     // },
-    // {
-    //   name: "Lhuqita Fazry",
-    //   position: "Mobile Development",
-    //   image: "assets/workshop/16.webp",
-    // },
-    // {
-    //   name: "Dwi Hartanto",
-    //   position: "Artificial Intelegence",
-    //   image: "assets/workshop/15.webp",
-    // },
-    // {
-    //   name: "Tohirin",
-    //   position: "Cyber Security",
-    //   image: "assets/workshop/17.webp",
-    // },
+    {
+      name: "Lhuqita Fazry",
+      position: "Mobile Development",
+      image: "assets/workshop/workshop mobile.png",
+    },
+    {
+      name: "Cooming Soon",
+      position: "Artificial Intelligence",
+      image: "assets/workshop/cooming.png",
+    },
+    {
+      name: "Cooming Soon",
+      position: "Cyber Security",
+      image: "assets/workshop/cooming.png",
+    },
   ],
   events: [
     // {

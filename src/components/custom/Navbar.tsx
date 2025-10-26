@@ -1,11 +1,10 @@
 import React from "react";
 import Logo from "/assets/nav-logo.png";
 import { Link, useLocation } from "react-router-dom";
-import { FaMicrophoneAlt } from "react-icons/fa";
-import { FaTrophy } from "react-icons/fa";
-import { FaHome } from "react-icons/fa";
+import { FaMicrophoneAlt, FaTrophy, FaHome, FaWrench } from "react-icons/fa";
 import { MdCoPresent } from "react-icons/md";
-import { FaWrench } from "react-icons/fa";
+// Mengimpor ikon pengguna sebagai alternatif untuk login admin
+import { FaUserCircle } from "react-icons/fa"; // Contoh ikon pengguna
 
 const Navbar = () => {
   const location = useLocation();
@@ -51,7 +50,7 @@ const Navbar = () => {
             className={`${!openMenu && "hidden"} w-full lg:block lg:w-auto`}
             id="navbar-default"
           >
-            <ul className="font-medium flex flex-col p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0 lg:bg-white">
+            <ul className="font-medium flex flex-col p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:items-center lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0 lg:bg-white">
               <li>
                 <Link
                   to={"/"}
@@ -127,6 +126,23 @@ const Navbar = () => {
                   Talkshow
                 </Link>
               </li>
+              <li>
+                <Link
+                  to={"/login-admin"}
+                  className={`block py-2 px-3 ${
+                    activeLink === "login-admin"
+                      ? "text-white bg-invofest rounded lg:bg-transparent lg:text-invofest"
+                      : "text-slate-600 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-invofest"
+                  } lg:p-0`}
+                  aria-current="page"
+                  onClick={() => setOpenMenu(false)}
+                  aria-label="Login Admin"
+                  title="Login Admin"
+                >
+                  {/* Menggunakan FaUserCircle sebagai ikon login */}
+                  <FaUserCircle className="text-2xl" />
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -136,3 +152,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
