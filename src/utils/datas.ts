@@ -84,11 +84,6 @@ export const dataWorkshop = {
   Peserta akan diajak untuk menyelami bagaimana Kecerdasan Buatan (AI) bukan hanya sekadar teknologi canggih, tetapi juga alat yang ampuh untuk menciptakan solusi nyata bagi isu-isu lingkungan. 
   Melalui sesi inspiratif, pengenalan konsep, dan praktik langsung (hands-on), workshop ini bertujuan memberdayakan Gen Z untuk menjadi agen perubahan di era digital, menggunakan keahlian mereka untuk masa depan bumi yang lebih baik.`,
   speakers: [
-    // {
-    //   name: "",
-    //   position: "Website Development",
-    //   image: "/assets/workshop/14.webp",
-    // },
     {
       name: "Lhuqita Fazry",
       position: "Mobile Development",
@@ -106,13 +101,6 @@ export const dataWorkshop = {
     },
   ],
   events: [
-    // {
-    //   id: 1,
-    //   title: "Web Development",
-    //   date: "Selasa, 22 Oktober 2024",
-    //   place: "Lab Kom D.2",
-    //   time: "08.00 WIB - 16.30 WIB",
-    // },
     {
       id: 1,
       title: "Mobile Development",

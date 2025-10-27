@@ -46,7 +46,6 @@ const Poster: React.FC = () => {
               {/* Tombol Register */}
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLScdjXXvLnnlLlOTgpn4SP-oMkvUfBXO0gcJeEr8Oa9-fDuh1Q/viewform?usp=preview"
-                target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-[#852e4e] hover:bg-[#4c1d3d] text-white font-semibold py-3 rounded-md text-center transition duration-200"
               >

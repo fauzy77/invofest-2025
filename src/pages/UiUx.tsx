@@ -46,7 +46,6 @@ const UiUx: React.FC = () => {
               {/* Tombol Register */}
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfuomobackIITWoZ4u9em8PjjZpjqtekXjs33-Ju1ll5r5xNQ/viewform?usp=preview"
-                target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-[#852e4e] hover:bg-[#4c1d3d] text-white font-semibold py-3 rounded-md text-center transition duration-200"
               >
