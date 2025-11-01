@@ -11,7 +11,8 @@ export const PenComPoster: React.FC = () => {
             email: "asepr@gmail.com",
             wa: "089767854321",
             kartuPelajar: "/images/kartu-pelajar/",
-            bukti: "/bukti/1.jpg",
+            buktiBayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
         },
     ];
 
@@ -25,7 +26,8 @@ export const PenComPoster: React.FC = () => {
             waKetua: "089767854321",
             namaAnggota: "Maman Nur Hidayat",
             kartuPelajar: "/images/kartu-pelajar/",
-            bukti: "/bukti/1.jpg",
+            buktiBayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
         },
     ];
 
@@ -103,6 +105,7 @@ export const PenComPoster: React.FC = () => {
                                 <th className="px-4 py-3 border-b text-left">WhatsApp</th>
                                 <th className="px-4 py-3 border-b text-left">Kartu Pelajar</th>
                                 <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                                <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                             </tr>
                         ) : (
                             <tr>
@@ -115,6 +118,7 @@ export const PenComPoster: React.FC = () => {
                                 <th className="px-4 py-3 border-b text-left">WhatsApp</th>
                                 <th className="px-4 py-3 border-b text-left">Kartu Pelajar</th>
                                 <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                                <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                             </tr>
                         )}
                     </thead>
@@ -141,7 +145,17 @@ export const PenComPoster: React.FC = () => {
                                         </td>
                                         <td className="px-4 py-2 border-b">
                                             <a
-                                                href={individu.bukti}
+                                                href={individu.buktiBayar}
+                                                className="text-blue-600 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Lihat Bukti
+                                            </a>
+                                        </td>
+                                        <td className="px-4 py-2 border-b">
+                                            <a
+                                                href={individu.buktiFollow}
                                                 className="text-blue-600 hover:underline"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -173,7 +187,17 @@ export const PenComPoster: React.FC = () => {
                                         </td>
                                         <td className="px-4 py-2 border-b">
                                             <a
-                                                href={tim.bukti}
+                                                href={tim.buktiBayar}
+                                                className="text-blue-600 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Lihat Bukti
+                                            </a>
+                                        </td>                                        
+                                        <td className="px-4 py-2 border-b">
+                                            <a
+                                                href={tim.buktiFollow}
                                                 className="text-blue-600 hover:underline"
                                                 target="_blank"
                                                 rel="noopener noreferrer"

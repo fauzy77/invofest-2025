@@ -71,4 +71,20 @@ const mediaPartner = [
     id: 10,
     img_path: "/assets/media_partner/logo info lomba IT.png",
   },
+  {
+    id: 11,
+    img_path: "/assets/media_partner/LOGO HMTIKA.png",
+  },
+  {
+    id: 12,
+    img_path: "/assets/media_partner/lomba it ii.png",
+  },
+  {
+    id: 13,
+    img_path: "/assets/media_partner/HMP D3 TEKNIK MESIN UHN.png",
+  },
+  {
+    id: 14,
+    img_path: "/assets/media_partner/logo hima elektro.png",
+  },
 ];

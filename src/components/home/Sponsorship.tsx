@@ -84,7 +84,19 @@ export function Sponsorship() {
 const sponsorLogo = [
   {
     id: 1,
-    img_path: "/assets/LOGO 1.png",
+    img_path: "/assets/sponsor/bahari_inn.jpg",
+  },
+  {
+    id: 2,
+    img_path: "/assets/sponsor/big_berry.png",
+  },
+  {
+    id: 3,
+    img_path: "/assets/sponsor/indo_print.jpg",
+  },
+  {
+    id: 4,
+    img_path: "/assets/sponsor/plaza_hotel_tegal.jpg",
   },
   // ... sponsor lainnya
 ];

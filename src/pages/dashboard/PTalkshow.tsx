@@ -1,28 +1,7 @@
 import React, { useState } from "react";
 
 const talkshowData = [
-    { id: 1, name: "Ahmad Mashuri", category: "Umum", whatsApp: "081234567890", asalInstitusi: "Universitas Harkat Negeri", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 2, name: "Budi Santoso", category: "Mahasiswa", whatsApp: "082145678901", asalInstitusi: "Politeknik Negeri Bandung", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 3, name: "Citra Dewi", category: "Umum", whatsApp: "083156789012", asalInstitusi: "Universitas Negeri Jakarta", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 4, name: "Dimas Pratama", category: "Mahasiswa", whatsApp: "084267890123", asalInstitusi: "Universitas Airlangga", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 5, name: "Eka Lestari", category: "Umum", whatsApp: "085378901234", asalInstitusi: "Universitas Diponegoro", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 6, name: "Farhan Rizky", category: "Umum", whatsApp: "086489012345", asalInstitusi: "Universitas Indonesia", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 7, name: "Gita Anggraini", category: "Mahasiswa", whatsApp: "087590123456", asalInstitusi: "Institut Teknologi Sepuluh Nopember", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 8, name: "Hendra Kurnia", category: "Umum", whatsApp: "088601234567", asalInstitusi: "Universitas Gadjah Mada", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 9, name: "Indah Sari", category: "Mahasiswa", whatsApp: "089712345678", asalInstitusi: "Universitas Negeri Surabaya", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 10, name: "Joko Prasetyo", category: "Umum", whatsApp: "081823456789", asalInstitusi: "Universitas Hasanuddin", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 11, name: "Kiki Rahma", category: "Mahasiswa", whatsApp: "082934567890", asalInstitusi: "Universitas Brawijaya", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
-    { id: 12, name: "Lina Hartati", category: "Umum", whatsApp: "083045678901", asalInstitusi: "Universitas Sebelas Maret", payment: "Transfer", buktiBayar: "/image/bukti-bayar" },
+    { id: 1, name: "Ahmad Mashuri", category: "Umum", whatsApp: "081234567890", asalInstitusi: "Universitas Harkat Negeri", payment: "Cash", buktiBayar: "/image/bukti-bayar", buktiFollow: "/image/bukti-follow" },
 ];
 
 export const PenTalkshow: React.FC = () => {
@@ -72,6 +51,7 @@ export const PenTalkshow: React.FC = () => {
                             <th className="px-4 py-3 border-b text-left">Asal Institusi</th>
                             <th className="px-4 py-3 border-b text-left">Pembayaran</th>
                             <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                            <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,6 +70,16 @@ export const PenTalkshow: React.FC = () => {
                                     <td className="px-4 py-2 border-b">
                                         <a
                                             href={talkshow.buktiBayar}
+                                            className="text-blue-600 hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Lihat Bukti
+                                        </a>
+                                    </td>
+                                    <td className="px-4 py-2 border-b">
+                                        <a
+                                            href={talkshow.buktiFollow}
                                             className="text-blue-600 hover:underline"
                                             target="_blank"
                                             rel="noopener noreferrer"

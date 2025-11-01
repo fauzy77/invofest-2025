@@ -11,7 +11,8 @@ export const PenComUiUx: React.FC = () => {
             email: "asepr@gmail.com",
             wa: "089767854321",
             kartuPelajar: "/images/kartu-pelajar/",
-            bukti: "/bukti/1.jpg",
+            buktiBayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
         },
     ];
 
@@ -23,9 +24,11 @@ export const PenComUiUx: React.FC = () => {
             namaKetua: "Asep Ramadhani",
             emailKetua: "asepr@gmail.com",
             waKetua: "089767854321",
-            namaAnggota: "Maman Nur Hidayat",
+            namaAnggota1: "Maman Nur Hidayat",
+            namaAnggota2: "Maman Nur Hidayat",
             kartuPelajar: "/images/kartu-pelajar/",
-            bukti: "/bukti/1.jpg",
+            buktiBayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
         },
     ];
 
@@ -45,7 +48,8 @@ export const PenComUiUx: React.FC = () => {
                 (tim) =>
                     tim.namaTim.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.namaKetua.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    tim.namaAnggota.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    tim.namaAnggota1.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    tim.namaAnggota2.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.asalSekolah.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.emailKetua.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.waKetua.toLowerCase().includes(searchTerm.toLowerCase())
@@ -102,6 +106,7 @@ export const PenComUiUx: React.FC = () => {
                                 <th className="px-4 py-3 border-b text-left">WhatsApp</th>
                                 <th className="px-4 py-3 border-b text-left">Kartu Pelajar</th>
                                 <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                                <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                             </tr>
                         ) : (
                             <tr>
@@ -109,11 +114,13 @@ export const PenComUiUx: React.FC = () => {
                                 <th className="px-4 py-3 border-b text-left">Nama Tim</th>
                                 <th className="px-4 py-3 border-b text-left">Asal Sekolah</th>
                                 <th className="px-4 py-3 border-b text-left">Nama Ketua</th>
-                                <th className="px-4 py-3 border-b text-left">Nama Anggota</th>
+                                <th className="px-4 py-3 border-b text-left">Nama Anggota 1</th>
+                                <th className="px-4 py-3 border-b text-left">Nama Anggota 2</th>
                                 <th className="px-4 py-3 border-b text-left">Email</th>
                                 <th className="px-4 py-3 border-b text-left">WhatsApp</th>
                                 <th className="px-4 py-3 border-b text-left">Kartu Pelajar</th>
                                 <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                                <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                             </tr>
                         )}
                     </thead>
@@ -140,7 +147,17 @@ export const PenComUiUx: React.FC = () => {
                                         </td>
                                         <td className="px-4 py-2 border-b">
                                             <a
-                                                href={individu.bukti}
+                                                href={individu.buktiBayar}
+                                                className="text-blue-600 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Lihat Bukti
+                                            </a>
+                                        </td>
+                                        <td className="px-4 py-2 border-b">
+                                            <a
+                                                href={individu.buktiFollow}
                                                 className="text-blue-600 hover:underline"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -157,7 +174,8 @@ export const PenComUiUx: React.FC = () => {
                                         <td className="px-4 py-2">{tim.namaTim}</td>
                                         <td className="px-4 py-2">{tim.asalSekolah}</td>
                                         <td className="px-4 py-2">{tim.namaKetua}</td>
-                                        <td className="px-4 py-2">{tim.namaAnggota}</td>
+                                        <td className="px-4 py-2">{tim.namaAnggota1}</td>
+                                        <td className="px-4 py-2">{tim.namaAnggota2}</td>
                                         <td className="px-4 py-2">{tim.emailKetua}</td>
                                         <td className="px-4 py-2">{tim.waKetua}</td>
                                         <td className="px-4 py-2 border-b">
@@ -172,7 +190,17 @@ export const PenComUiUx: React.FC = () => {
                                         </td>
                                         <td className="px-4 py-2 border-b">
                                             <a
-                                                href={tim.bukti}
+                                                href={tim.buktiBayar}
+                                                className="text-blue-600 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Lihat Bukti
+                                            </a>
+                                        </td>                                        
+                                        <td className="px-4 py-2 border-b">
+                                            <a
+                                                href={tim.buktiFollow}
                                                 className="text-blue-600 hover:underline"
                                                 target="_blank"
                                                 rel="noopener noreferrer"

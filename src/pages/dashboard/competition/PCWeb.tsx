@@ -6,26 +6,56 @@ export const PenComWeb: React.FC = () => {
     const individuData = [
         {
             id: 1,
+            kategori: "mahasiswa",
             nama: "Asep Ramadhani yudha",
             asalSekolah : "Smk Nu 1 Kramat",
             email: "asepr@gmail.com",
             wa: "089767854321",
             kartuPelajar: "/images/kartu-pelajar/",
-            bukti: "/bukti/1.jpg",
+            buktiBayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
+        },
+        {
+            id: 1,
+            kategori: "siswa",
+            nama: "Asep Ramadhani yudha",
+            asalSekolah : "Smk Nu 1 Kramat",
+            email: "asepr@gmail.com",
+            wa: "089767854321",
+            kartuPelajar: "/images/kartu-pelajar/",
+            buktibayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
         },
     ];
 
     const timData = [
         {
             id: 1,
+            kategori: "mahasiswa",
             namaTim: "Tech Warriors",
             asalSekolah : "Smk Nu 1 Kramat",
             namaKetua: "Asep Ramadhani",
             emailKetua: "asepr@gmail.com",
             waKetua: "089767854321",
-            namaAnggota: "Maman Nur Hidayat",
+            namaAnggota1: "Maman Nur Hidayat",
+            namaAnggota2: "Maman Nur Hidayat",
             kartuPelajar: "/images/kartu-pelajar/",
-            bukti: "/bukti/1.jpg",
+            buktiBayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
+        },
+        {
+            id: 1,
+            kategori: "siswa",
+            namaTim: "Tech Warriors",
+            asalSekolah : "Smk Nu 1 Kramat",
+            namaKetua: "Asep Ramadhani",
+            emailKetua: "asepr@gmail.com",
+            waKetua: "089767854321",
+            namaAnggota1: "Maman Nur Hidayat",
+            namaAnggota2: "Maman Nur Hidayat",
+            kartuPelajar: "/images/kartu-pelajar/",
+            buktiBayar: "/bukti/1.jpg",
+            buktiFollow: "/bukti/1.jpg",
         },
     ];
 
@@ -45,7 +75,8 @@ export const PenComWeb: React.FC = () => {
                 (tim) =>
                     tim.namaTim.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.namaKetua.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    tim.namaAnggota.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    tim.namaAnggota1.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    tim.namaAnggota2.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.asalSekolah.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.emailKetua.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     tim.waKetua.toLowerCase().includes(searchTerm.toLowerCase())
@@ -96,24 +127,29 @@ export const PenComWeb: React.FC = () => {
                         {activeTab === "individu" ? (
                             <tr>
                                 <th className="px-4 py-3 border-b text-left">No</th>
+                                <th className="px-4 py-3 border-b text-left">Kategori</th>
                                 <th className="px-4 py-3 border-b text-left">Nama</th>
                                 <th className="px-4 py-3 border-b text-left">Asal Sekolah</th>
                                 <th className="px-4 py-3 border-b text-left">Email</th>
                                 <th className="px-4 py-3 border-b text-left">WhatsApp</th>
                                 <th className="px-4 py-3 border-b text-left">Kartu Pelajar</th>
                                 <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                                <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                             </tr>
                         ) : (
                             <tr>
                                 <th className="px-4 py-3 border-b text-left">No</th>
+                                <th className="px-4 py-3 border-b text-left">Kategori</th>
                                 <th className="px-4 py-3 border-b text-left">Nama Tim</th>
                                 <th className="px-4 py-3 border-b text-left">Asal Sekolah</th>
                                 <th className="px-4 py-3 border-b text-left">Nama Ketua</th>
-                                <th className="px-4 py-3 border-b text-left">Nama Anggota</th>
+                                <th className="px-4 py-3 border-b text-left">Nama Anggota 1</th>
+                                <th className="px-4 py-3 border-b text-left">Nama Anggota 2</th>
                                 <th className="px-4 py-3 border-b text-left">Email</th>
                                 <th className="px-4 py-3 border-b text-left">WhatsApp</th>
                                 <th className="px-4 py-3 border-b text-left">Kartu Pelajar</th>
                                 <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                                <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                             </tr>
                         )}
                     </thead>
@@ -124,6 +160,7 @@ export const PenComWeb: React.FC = () => {
                                 (filteredData as typeof individuData).map((individu, index) => (
                                     <tr key={individu.id} className="hover:bg-gray-50 border-b last:border-none">
                                         <td className="px-4 py-2">{index + 1}</td>
+                                        <td className="px-4 py-2">{individu.kategori}</td>
                                         <td className="px-4 py-2">{individu.nama}</td>
                                         <td className="px-4 py-2">{individu.asalSekolah}</td>
                                         <td className="px-4 py-2">{individu.email}</td>
@@ -140,7 +177,17 @@ export const PenComWeb: React.FC = () => {
                                         </td>
                                         <td className="px-4 py-2 border-b">
                                             <a
-                                                href={individu.bukti}
+                                                href={individu.buktiBayar}
+                                                className="text-blue-600 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Lihat Bukti
+                                            </a>
+                                        </td>
+                                        <td className="px-4 py-2 border-b">
+                                            <a
+                                                href={individu.buktiFollow}
                                                 className="text-blue-600 hover:underline"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -154,10 +201,12 @@ export const PenComWeb: React.FC = () => {
                                 (filteredData as typeof timData).map((tim, index) => (
                                     <tr key={tim.id} className="hover:bg-gray-50 border-b last:border-none">
                                         <td className="px-4 py-2">{index + 1}</td>
+                                        <td className="px-4 py-2">{tim.kategori}</td>
                                         <td className="px-4 py-2">{tim.namaTim}</td>
                                         <td className="px-4 py-2">{tim.asalSekolah}</td>
                                         <td className="px-4 py-2">{tim.namaKetua}</td>
-                                        <td className="px-4 py-2">{tim.namaAnggota}</td>
+                                        <td className="px-4 py-2">{tim.namaAnggota1}</td>
+                                        <td className="px-4 py-2">{tim.namaAnggota2}</td>
                                         <td className="px-4 py-2">{tim.emailKetua}</td>
                                         <td className="px-4 py-2">{tim.waKetua}</td>
                                         <td className="px-4 py-2 border-b">
@@ -172,7 +221,17 @@ export const PenComWeb: React.FC = () => {
                                         </td>
                                         <td className="px-4 py-2 border-b">
                                             <a
-                                                href={tim.bukti}
+                                                href={tim.buktiBayar}
+                                                className="text-blue-600 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Lihat Bukti
+                                            </a>
+                                        </td>                                        
+                                        <td className="px-4 py-2 border-b">
+                                            <a
+                                                href={tim.buktiFollow}
                                                 className="text-blue-600 hover:underline"
                                                 target="_blank"
                                                 rel="noopener noreferrer"

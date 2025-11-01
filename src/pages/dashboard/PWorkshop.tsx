@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
 const seminarData = [
-    { id: 1, name: "Muhammad Muqtasid Roziq", jenis: "Artificial Intelegence", category: "Mahasiswa", whatsApp: "081234567890", nim: "23090068",semKel: "5B", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 1, name: "Ahmad Maman Budiyanto", jenis: "Mobile Development", category: "Mahasiswa", whatsApp: "081234567890", nim: "23090068",semKel: "5B", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
-    { id: 1, name: "Septian agus", jenis: "Cyber Security", category: "Mahasiswa", whatsApp: "081234567890", nim: "23090068",semKel: "5B", payment: "Cash", buktiBayar: "/image/bukti-bayar" },
+    { id: 1, name: "Muhammad Muqtasid Roziq", jenis: "Artificial Intelegence", category: "Mahasiswa", whatsApp: "081234567890", nim: "23090068",semKel: "5B", payment: "Cash", buktiBayar: "/image/bukti-bayar", buktiFollow: "/image/bukti-follow" },
 ];
 
 export const PenWorkshop: React.FC = () => {
@@ -57,6 +55,7 @@ export const PenWorkshop: React.FC = () => {
                             <th className="px-4 py-3 border-b text-left">Kelas</th>
                             <th className="px-4 py-3 border-b text-left">Pembayaran</th>
                             <th className="px-4 py-3 border-b text-left">Bukti Pembayaran</th>
+                            <th className="px-4 py-3 border-b text-left">Bukti Follow</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,6 +76,16 @@ export const PenWorkshop: React.FC = () => {
                                     <td className="px-4 py-2 border-b">
                                         <a
                                             href={workshop.buktiBayar}
+                                            className="text-blue-600 hover:underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Lihat Bukti
+                                        </a>
+                                    </td>
+                                    <td className="px-4 py-2 border-b">
+                                        <a
+                                            href={workshop.buktiFollow}
                                             className="text-blue-600 hover:underline"
                                             target="_blank"
                                             rel="noopener noreferrer"
