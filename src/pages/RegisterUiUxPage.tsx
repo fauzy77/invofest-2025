@@ -8,7 +8,7 @@ import SuccessModal from "@/components/common/SuccessModal"; // <-- (1) Import M
 
 // --- (2) KONSTANTA SPESIFIK UNTUK FORM INI ---
 const NAMA_LOMBA = "UI/UX Design";
-const HARGA_LOMBA = 75000;
+const HARGA_LOMBA = 85000;
 
 // --- Tipe Data (Enums) ---
 type JenisKeikutsertaan = "mahasiswa" | "siswa" | "";
