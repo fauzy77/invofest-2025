@@ -1,29 +1,32 @@
+"use client";
+
+import type React from "react";
+
 import { useState, useEffect } from "react";
-import {
-  FiMenu,
-  FiLogOut,
-  FiChevronDown,
-} from "react-icons/fi";
-import { FaHome, FaMicrophoneAlt, FaWrench, FaTrophy} from "react-icons/fa";
+import { FiMenu, FiLogOut, FiChevronDown } from "react-icons/fi";
+import { FaHome, FaMicrophoneAlt, FaWrench, FaTrophy } from "react-icons/fa";
 import { MdCoPresent, MdDesignServices } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa6";
-import { RiImageEditLine} from "react-icons/ri";
+import { RiImageEditLine } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLocation, useNavigate } from "react-router-dom"; 
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 import Logo from "/assets/nav-logo.png";
-
 
 interface SidebarProps {
   isExpanded: boolean;
   setIsExpanded: (value: boolean) => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) => {
+export const Sidebar: React.FC<SidebarProps> = ({
+  isExpanded,
+  setIsExpanded,
+}) => {
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [isDarkMode] = useState(false);
-
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,7 +34,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) =
       setIsMobile(window.innerWidth <= 768);
       setIsExpanded(window.innerWidth > 768);
     };
-    
 
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -49,29 +51,67 @@ export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) =
     }
   }, [location.pathname]);
 
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login-admin");
+  };
 
-  const basePath = '/dashboard'
+  const basePath = "/dashboard";
 
   const menuItems = [
     { id: "dashboard", icon: <FaHome />, label: "Dashboard", path: basePath },
-    { id: "seminar", icon: <MdCoPresent />, label: "Seminar", path: `${basePath}/seminar`},
-    { id: "talkshow", icon: <FaMicrophoneAlt />, label: "Talkshow", path: `${basePath}/talkshow` },
-    { id: "workshop", icon: <FaWrench />, label: "Workshop", path: `${basePath}/workshop` },
+    {
+      id: "seminar",
+      icon: <MdCoPresent />,
+      label: "Seminar",
+      path: `${basePath}/seminar`,
+    },
+    {
+      id: "talkshow",
+      icon: <FaMicrophoneAlt />,
+      label: "Talkshow",
+      path: `${basePath}/talkshow`,
+    },
+    {
+      id: "workshop",
+      icon: <FaWrench />,
+      label: "Workshop",
+      path: `${basePath}/workshop`,
+    },
     {
       id: "competition",
       icon: <FaTrophy />,
       label: "Competition",
       children: [
-        { id: "competition-poster", icon: <RiImageEditLine />, label: "Poster Design", path: `${basePath}/competition/poster` },
-        { id: "competition-uiux", icon: <MdDesignServices />, label: "UI/UX Design", path: `${basePath}/competition/uiux` },
-        { id: "competition-web", icon: <FaGlobe />, label: "Web Design", path: `${basePath}/competition/web-design` },
+        {
+          id: "competition-poster",
+          icon: <RiImageEditLine />,
+          label: "Poster Design",
+          path: `${basePath}/competition/poster`,
+        },
+        {
+          id: "competition-uiux",
+          icon: <MdDesignServices />,
+          label: "UI/UX Design",
+          path: `${basePath}/competition/uiux`,
+        },
+        {
+          id: "competition-web",
+          icon: <FaGlobe />,
+          label: "Web Design",
+          path: `${basePath}/competition/web-design`,
+        },
       ],
     },
   ];
 
   const toggleSidebar = () => setIsExpanded(!isExpanded);
 
-  const handleMenuClick = (item: any) => {
+  const handleMenuClick = (item: {
+    id: string;
+    path: string;
+    children: { id: string; path: string }[];
+  }) => {
     if (item.children) {
       setOpenMenu(openMenu === item.id ? null : item.id);
     } else {
@@ -79,7 +119,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) =
     }
   };
 
-  const handleSubMenuClick = (sub: any) => {
+  const handleSubMenuClick = (sub: { id: string; path: string }) => {
     navigate(sub.path);
   };
 
@@ -113,18 +153,28 @@ export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) =
           animate={isExpanded ? "expanded" : "collapsed"}
           variants={sidebarVariants}
           transition={{ duration: 0.3 }}
-          className={`fixed left-0 top-0 h-screen ${isDarkMode ? "bg-gray-900" : "bg-white"} 
+          className={`fixed left-0 top-0 h-screen ${
+            isDarkMode ? "bg-gray-900" : "bg-white"
+          } 
             shadow-lg z-30 flex flex-col overflow-hidden`}
         >
           {/* HEADER LOGO */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3">
-              {isExpanded && <img src={Logo} className="w-40" alt="Invofest Logo" />}
+              {isExpanded && (
+                <img
+                  src={Logo || "/placeholder.svg"}
+                  className="w-40"
+                  alt="Invofest Logo"
+                />
+              )}
             </div>
             <button
               onClick={toggleSidebar}
               className={`p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800
-                transition-colors ${isDarkMode ? "text-white" : "text-gray-600"}`}
+                transition-colors ${
+                  isDarkMode ? "text-white" : "text-gray-600"
+                }`}
               aria-label="Toggle Sidebar"
             >
               <FiMenu size={20} />
@@ -135,17 +185,36 @@ export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) =
             {menuItems.map((item) => (
               <div key={item.id}>
                 <button
-                  onClick={() => handleMenuClick(item)}
-                  className={`w-full flex items-center justify-between p-3 transition-all rounded-lg
-                    ${!isExpanded ? "justify-center" : "px-4"}
-                    ${
-                      (item.id === "dashboard"
-                        ? location.pathname === item.path
-                        : location.pathname === item.path || location.pathname.startsWith(item.path + "/"))
-                        ? `${isDarkMode ? "bg-blue-900" : "bg-blue-50"} ${isDarkMode ? "text-blue-400" : "text-blue-600"}`
-                        : `${isDarkMode ? "text-gray-400" : "text-gray-600"} hover:bg-gray-100 dark:hover:bg-gray-800`
-
-                    }`}
+                  onClick={() => {
+                    if (item.children) {
+                      // kalau punya submenu
+                      handleMenuClick({
+                        id: item.id,
+                        path: item.children[0]?.path || "",
+                        children: item.children.map((child) => ({
+                          id: child.id,
+                          path: child.path,
+                        })),
+                      });
+                    } else {
+                      // kalau tidak punya submenu, langsung navigate
+                      navigate(item.path);
+                    }
+                  }}
+                  className={`w-full flex items-center justify-between p-3 transition-all rounded-lg ${
+                    !isExpanded ? "justify-center" : "px-4"
+                  } ${
+                    item.id === "dashboard"
+                      ? location.pathname === item.path
+                      : location.pathname === item.path ||
+                        location.pathname.startsWith(item.path + "/")
+                      ? `${isDarkMode ? "bg-blue-900" : "bg-blue-50"} ${
+                          isDarkMode ? "text-blue-400" : "text-blue-600"
+                        }`
+                      : `${
+                          isDarkMode ? "text-gray-400" : "text-gray-600"
+                        } hover:bg-gray-100 dark:hover:bg-gray-800`
+                  }`}
                 >
                   <div className="flex items-center">
                     <span className="text-xl">{item.icon}</span>
@@ -184,7 +253,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) =
                             }`}
                         >
                           <span className="text-lg">{sub.icon}</span>
-                          {isExpanded && <span className="ml-2">{sub.label}</span>}
+                          {isExpanded && (
+                            <span className="ml-2">{sub.label}</span>
+                          )}
                         </button>
                       ))}
                     </motion.div>
@@ -196,9 +267,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ isExpanded, setIsExpanded }) =
 
           <div className="border-t border-gray-200 dark:border-gray-700 p-4">
             <button
+              onClick={handleLogout}
               className={`w-full flex items-center p-3 mt-2 rounded-lg
                 ${!isExpanded ? "justify-center" : ""}
-                ${isDarkMode ? "text-red-400 hover:bg-red-900/30" : "text-red-600 hover:bg-red-50"}`}
+                ${
+                  isDarkMode
+                    ? "text-red-400 hover:bg-red-900/30"
+                    : "text-red-600 hover:bg-red-50"
+                }`}
               aria-label="Logout"
             >
               <FiLogOut size={20} />
