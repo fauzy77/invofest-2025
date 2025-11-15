@@ -120,6 +120,7 @@ const FileUploadGroup: React.FC<FileProps> = ({
 const RegisterSeminarPage: React.FC = () => {
   // --- State Utama ---
   const [category, setCategory] = useState<JenisKeikutsertaan>("");
+  const [harga, setHarga] = useState<number>(0);
   const [formData, setFormData] = useState<FormData>({
     email: "",
     fullName: "",
@@ -142,6 +143,16 @@ const RegisterSeminarPage: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+
+  useEffect(() => {
+    if (category === "mahasiswa") {
+      setHarga(50000);
+    } else if (category === "umum") {
+      setHarga(75000);
+    } else {
+      setHarga(0);
+    }
+  }, [category]);
 
   // --- Handlers ---
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -202,6 +213,11 @@ const RegisterSeminarPage: React.FC = () => {
         Format deskripsi: "{formData.fullName || "[NamaLengkap]"}
         _Seminar_Invofest_2025"
       </p>
+      {harga > 0 && (
+        <p className="font-semibold text-sm text-[#852e4e]">
+          Total Biaya: Rp {harga.toLocaleString("id-ID")}
+        </p>
+      )}
       <div className="text-slate-600">
         <p className="font-medium">
           Biaya Pendaftaran dapat dilakukan melalui:
@@ -268,6 +284,15 @@ const RegisterSeminarPage: React.FC = () => {
                 required
               />
             </fieldset>
+
+            {harga > 0 && (
+              <div
+                data-aos="zoom-in"
+                className="p-3 text-center text-lg font-bold text-[#852e4e] bg-[#FFC0D3]/50 border border-[#852e4e]/30 rounded-lg"
+              >
+                Biaya Pendaftaran: Rp {harga.toLocaleString("id-ID")}
+              </div>
+            )}
 
             {/* --- Bagian 2: Form Dinamis --- */}
             {showForm && (

@@ -152,9 +152,9 @@ const RegisterWorkshopPage: React.FC = () => {
 
   useEffect(() => {
     if (jenis === "mahasiswa") {
-      setHarga(50000);
+      setHarga(100000);
     } else if (jenis === "umum") {
-      setHarga(75000);
+      setHarga(150000);
     } else {
       setHarga(0); 
     }

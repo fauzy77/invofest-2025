@@ -154,9 +154,9 @@ const RegisterTalkshowPage: React.FC = () => {
   // --- (2) useEffect BARU UNTUK SET HARGA ---
   useEffect(() => {
     if (jenis === "mahasiswa") {
-      setHarga(50000);
+      setHarga(25000);
     } else if (jenis === "umum") {
-      setHarga(75000);
+      setHarga(35000);
     } else {
       setHarga(0); // Reset jika belum dipilih
     }
