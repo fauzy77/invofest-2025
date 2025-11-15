@@ -50,12 +50,12 @@ const App = () => {
           <Route path="/competition/ui-ux" element={<UiUx />} />
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/login-admin" element={<LoginPage />} />
-          <Route path="/workshop/register-workshop" element={<RegisterWorkshopPage />} />
-          <Route path="/competition/ui-ux/register-ui-ux" element={<RegisterUiUxPage />} />
-          <Route path="/competition/poster/register-poster" element={<RegisterPosterPage />} />
-          <Route path="/competition/web-design/register-web-design" element={<RegisterWebPage />} />
-          <Route path="/seminar/register-seminar" element={<RegisterSeminarPage />} />
-          <Route path="/talkshow/register-talkshow" element={<RegisterTalkshowPage />} />
+          <Route path="/workshop/register" element={<RegisterWorkshopPage />} />
+          <Route path="/competition/ui-ux/register" element={<RegisterUiUxPage />} />
+          <Route path="/competition/poster/register" element={<RegisterPosterPage />} />
+          <Route path="/competition/web-design/register" element={<RegisterWebPage />} />
+          <Route path="/seminar/register" element={<RegisterSeminarPage />} />
+          <Route path="/talkshow/register" element={<RegisterTalkshowPage />} />
 
           <Route path="/dashboard" element={<Dashboard />}> 
             <Route index element={<HomeAdmin />} ></Route>

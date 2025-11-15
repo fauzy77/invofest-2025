@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AOS from "aos";
 import ButtonPrimary from "../custom/ButtonPrimary";
 import { CustomHeroProps } from "@/utils/types";
@@ -16,6 +16,8 @@ const CustomHero = ({
       duration: 1500,
     });
   }, []);
+
+  const [open, setOpen] = useState(false);
 
   return (
     <React.Fragment>
@@ -50,12 +52,25 @@ const CustomHero = ({
               </p>
               <div className="flex items-center gap-3 sm:gap-4 lg:gap-5 mt-3">
                 <ButtonPrimary
-                  text={"Daftar Sekarang"}
-                  dataAos={"zoom-in"}
-                  delayAos={"300"}
+                  text="Daftar Sekarang"
+                  dataAos="zoom-in"
+                  delayAos="300"
                   isOutline={false}
-                  handleClick={() => window.open(linkRegister, "_blank")}
+                  isLink={false}
+                  handleClick={(e) => {
+                    e.preventDefault();
+                    window.open(linkRegister, "_blank", "noopener,noreferrer");
+                  }}
                 />
+
+                {open && (
+                  <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+                    <div className="bg-white w-[90%] h-[80%] p-4 rounded-lg">
+                      <button onClick={() => setOpen(false)}>Close</button>
+                      <iframe src={linkRegister} className="w-full h-full" />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <img
@@ -63,9 +78,9 @@ const CustomHero = ({
               alt="hero-landing-page"
               className={`w-[320px] ${
                 title === "IT Seminar"
-                  // ? "sm:w-[360px]"
-                  // : "sm:w-[300px]"
-                  ? "sm:w-[460px]"
+                  ? // ? "sm:w-[360px]"
+                    // : "sm:w-[300px]"
+                    "sm:w-[460px]"
                   : "sm:w-[400px]"
               }`}
               data-aos="fade-up"

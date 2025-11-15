@@ -1,8 +1,11 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import SuccessModal from "@/components/common/SuccessModal"; // Import Modal
+import { eventAPI } from "@/services/api"; // Import eventAPI
 
 // --- Tipe Data (Enums) ---
 type JenisKeikutsertaan = "mahasiswa" | "umum" | "";
@@ -16,18 +19,15 @@ const jenisOptions = [
 // --- Interface untuk State ---
 interface FormData {
   email: string;
-  namaLengkap: string;
-  noHp: string;
-  // Kondisional
-  asalInstitusi: string; // Untuk 'umum'
-  semesterKelas: string; // Untuk 'mahasiswa'
-  nim: string;
+  fullName: string;
+  whatsapp: string;
+  category: string;
+  institution: string;
 }
 
 interface FormFiles {
-  bayar: File | null;
-  follow: File | null;
-  ktm: File | null;
+  payment: File | null;
+  igFollow: File | null;
 }
 
 // --- KOMPONEN REUSABLE (dimasukkan di sini agar mudah) ---
@@ -119,27 +119,22 @@ const FileUploadGroup: React.FC<FileProps> = ({
 // --- KOMPONEN UTAMA HALAMAN REGISTRASI ---
 const RegisterSeminarPage: React.FC = () => {
   // --- State Utama ---
-  const [jenis, setJenis] = useState<JenisKeikutsertaan>("");
-  const [harga, setHarga] = useState<number>(0); // <-- (1) STATE HARGA BARU
-
+  const [category, setCategory] = useState<JenisKeikutsertaan>("");
   const [formData, setFormData] = useState<FormData>({
     email: "",
-    namaLengkap: "",
-    noHp: "",
-    asalInstitusi: "",
-    semesterKelas: "",
-    nim: "",
+    fullName: "",
+    whatsapp: "",
+    category: "",
+    institution: "",
   });
 
   const [files, setFiles] = useState<FormFiles>({
-    bayar: null,
-    follow: null,
-    ktm: null,
+    payment: null,
+    igFollow: null,
   });
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -147,17 +142,6 @@ const RegisterSeminarPage: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
-
-  // --- (2) useEffect BARU UNTUK SET HARGA ---
-  useEffect(() => {
-    if (jenis === "mahasiswa") {
-      setHarga(50000);
-    } else if (jenis === "umum") {
-      setHarga(75000);
-    } else {
-      setHarga(0); // Reset jika belum dipilih
-    }
-  }, [jenis]); // <-- Dijalankan setiap kali 'jenis' berubah
 
   // --- Handlers ---
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -168,7 +152,11 @@ const RegisterSeminarPage: React.FC = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files: inputFiles } = e.target;
     if (inputFiles && inputFiles.length > 0) {
-      setFiles((prev) => ({ ...prev, [name]: inputFiles[0] }));
+      let mappedName = name;
+      if (name === "bayar") mappedName = "payment";
+      if (name === "follow") mappedName = "igFollow";
+
+      setFiles((prev) => ({ ...prev, [mappedName]: inputFiles[0] }));
     }
   };
 
@@ -177,36 +165,25 @@ const RegisterSeminarPage: React.FC = () => {
     setIsLoading(true);
     setError(null);
 
-    // --- PENGUMPULAN DATA ---
     const data = new FormData();
-    data.append("jenisKeikutsertaan", jenis);
-    data.append("biaya", harga.toString()); // <-- (3) Kirim harga dinamis
     data.append("email", formData.email);
-    data.append("namaLengkap", formData.namaLengkap);
-    data.append("noHp", formData.noHp);
+    data.append("fullName", formData.fullName);
+    data.append("category", category.toUpperCase() as string);
+    data.append("whatsapp", formData.whatsapp);
+    data.append("institution", formData.institution);
 
-    if (jenis === "umum") {
-      data.append("asalInstitusi", formData.asalInstitusi);
-    } else if (jenis === "mahasiswa") {
-      data.append("semesterKelas", formData.semesterKelas);
-      data.append("nim", formData.nim);
-      if (files.ktm) {
-        data.append("file_ktm", files.ktm);
-      }
-    }
+    if (files.payment) data.append("payment", files.payment);
+    if (files.igFollow) data.append("igFollow", files.igFollow);
 
-    if (files.bayar) data.append("file_bayar", files.bayar);
-    if (files.follow) data.append("file_follow", files.follow);
-
-    console.log("Data siap dikirim:", Object.fromEntries(data.entries()));
-
-    // --- SIMULASI API CALL ---
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      // throw new Error("Simulasi error: Gagal mendaftar.");
+      await eventAPI.registerSeminar(data);
       setIsModalOpen(true);
-    } catch (err: any) {
-      setError(err.message || "Terjadi kesalahan.");
+    } catch (err: unknown) {
+      const error = err as Error;
+      const errorMessage =
+        error.message || "Terjadi kesalahan saat mendaftar. Silakan coba lagi.";
+      setError(errorMessage);
+      console.error("Registration error:", error.message as string | undefined);
     } finally {
       setIsLoading(false);
     }
@@ -214,33 +191,29 @@ const RegisterSeminarPage: React.FC = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    navigate("/seminar"); // Arahkan kembali ke halaman seminar
+    navigate("/seminar");
   };
 
-  const showForm = jenis;
-
-  // --- (4) DESKRIPSI PEMBAYARAN DI-UPDATE ---
-  const deskripsiFormat = `Format deskripsi: "${formData.namaLengkap || "[NamaLengkap]"
-    }_${harga > 0 ? `Seminar_Invofest_2025_Rp.${harga}` : "[Seminar_Harga]"}"`;
+  const showForm = category;
 
   const deskripsiBayarNode = (
     <div className="space-y-2 mt-1">
-      {/* --- Gunakan state 'harga' di sini --- */}
-      {harga > 0 && (
-        <p className="font-semibold text-sm text-[#852e4e]">
-          Total Biaya: Rp {harga.toLocaleString("id-ID")}
-        </p>
-      )}
-      {/* ---------------------------------- */}
-      <p className="font-semibold">{deskripsiFormat}</p>
+      <p className="font-semibold">
+        Format deskripsi: "{formData.fullName || "[NamaLengkap]"}
+        _Seminar_Invofest_2025"
+      </p>
       <div className="text-slate-600">
-        <p className="font-medium">Biaya Pendaftaran dapat dilakukan melalui:</p>
+        <p className="font-medium">
+          Biaya Pendaftaran dapat dilakukan melalui:
+        </p>
         <ul className="list-disc list-inside ml-1 text-xs">
           <li>
-            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya Maylinah)
+            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya
+            Maylinah)
           </li>
           <li>
-            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya Maylinah)
+            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya
+            Maylinah)
           </li>
         </ul>
       </div>
@@ -276,35 +249,27 @@ const RegisterSeminarPage: React.FC = () => {
               </div>
             )}
 
-            {/* --- Bagian 1: Jenis Keikutsertaan --- */}
+            {/* --- Bagian 1: Category --- */}
             <fieldset className="space-y-4 p-4 border rounded-lg">
               <legend className="px-2 font-semibold text-slate-600">
                 Detail Pendaftaran
               </legend>
               <SelectGroup
-                label="Jenis Keikutsertaan"
-                id="jenis"
-                name="jenis"
-                value={jenis}
-                onChange={(e) => setJenis(e.target.value as JenisKeikutsertaan)}
+                label="Kategori"
+                id="category"
+                name="category"
+                value={category}
+                onChange={(e) =>
+                  setCategory(e.target.value as JenisKeikutsertaan)
+                }
                 options={jenisOptions}
-                placeholder="Pilih jenis keikutsertaan..."
+                placeholder="Pilih kategori Anda..."
                 disabled={isLoading}
                 required
               />
             </fieldset>
 
-            {/* --- (5) TAMPILKAN HARGA SETELAH MEMILIH --- */}
-            {harga > 0 && (
-              <div
-                data-aos="zoom-in"
-                className="p-3 text-center text-lg font-bold text-[#852e4e] bg-[#FFC0D3]/50 border border-[#852e4e]/30 rounded-lg"
-              >
-                Biaya Pendaftaran: Rp {harga.toLocaleString("id-ID")}
-              </div>
-            )}
-
-            {/* --- Bagian 2: Form Dinamis (Muncul setelah 'jenis' dipilih) --- */}
+            {/* --- Bagian 2: Form Dinamis --- */}
             {showForm && (
               <div data-aos="fade-in" className="space-y-6">
                 {/* --- Fields Umum --- */}
@@ -312,12 +277,11 @@ const RegisterSeminarPage: React.FC = () => {
                   <legend className="px-2 font-semibold text-slate-600">
                     Data Peserta
                   </legend>
-                  {/* (Input Nama, Email, No.HP) */}
                   <InputGroup
                     label="Nama Lengkap"
-                    id="namaLengkap"
-                    name="namaLengkap"
-                    value={formData.namaLengkap}
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
                     onChange={handleTextChange}
                     placeholder="Masukkan nama lengkap Anda"
                     disabled={isLoading}
@@ -336,56 +300,25 @@ const RegisterSeminarPage: React.FC = () => {
                   />
                   <InputGroup
                     label="No. WhatsApp"
-                    id="noHp"
-                    name="noHp"
+                    id="whatsapp"
+                    name="whatsapp"
                     type="tel"
-                    value={formData.noHp}
+                    value={formData.whatsapp}
                     onChange={handleTextChange}
-                    placeholder="Contoh: 08123456789"
+                    placeholder="Contoh: 6281234567890"
                     disabled={isLoading}
                     required
                   />
-
-                  {/* --- FIELDS KONDISIONAL --- */}
-                  {jenis === "umum" && (
-                    <div data-aos="zoom-in">
-                      <InputGroup
-                        label="Asal Institusi"
-                        id="asalInstitusi"
-                        name="asalInstitusi"
-                        value={formData.asalInstitusi}
-                        onChange={handleTextChange}
-                        placeholder="Contoh: Umum / Nama Perusahaan"
-                        disabled={isLoading}
-                        required
-                      />
-                    </div>
-                  )}
-
-                  {jenis === "mahasiswa" && (
-                    <div data-aos="zoom-in" className="space-y-4">
-                      <InputGroup
-                        label="Asal Universitas / prodi_Semester_Kelas"
-                        id="semesterKelas"
-                        name="semesterKelas"
-                        value={formData.semesterKelas}
-                        onChange={handleTextChange}
-                        placeholder="Contoh: Universitas Harkat Negeri / TI_5_A"
-                        disabled={isLoading}
-                        required
-                      />
-                      <InputGroup
-                        label="NIM (Nomor Induk Mahasiswa)"
-                        id="nim"
-                        name="nim"
-                        value={formData.nim}
-                        onChange={handleTextChange}
-                        placeholder="Masukkan NIM Anda"
-                        disabled={isLoading}
-                        required
-                      />
-                    </div>
-                  )}
+                  <InputGroup
+                    label="Institusi"
+                    id="institution"
+                    name="institution"
+                    value={formData.institution}
+                    onChange={handleTextChange}
+                    placeholder="Nama Institusi / Perusahaan"
+                    disabled={isLoading}
+                    required
+                  />
                 </fieldset>
 
                 {/* --- Fields Upload --- */}
@@ -394,35 +327,20 @@ const RegisterSeminarPage: React.FC = () => {
                     Berkas Pendaftaran
                   </legend>
 
-                  {jenis === "mahasiswa" && (
-                    <div data-aos="zoom-in">
-                      <FileUploadGroup
-                        label="Kartu Pelajar / Mahasiswa"
-                        id="ktm"
-                        name="ktm"
-                        accept="image/png, image/jpeg, image/jpg, .pdf"
-                        onChange={handleFileChange}
-                        description="Upload scan/foto KTM atau Kartu Pelajar Anda."
-                        disabled={isLoading}
-                        required
-                      />
-                    </div>
-                  )}
-
                   <FileUploadGroup
                     label="Bukti Pembayaran"
-                    id="bayar"
-                    name="bayar"
+                    id="payment"
+                    name="payment"
                     accept="image/png, image/jpeg, image/jpg"
                     onChange={handleFileChange}
-                    description={deskripsiBayarNode} // <-- Node ini sudah dinamis
+                    description={deskripsiBayarNode}
                     disabled={isLoading}
                     required
                   />
                   <FileUploadGroup
                     label="Bukti Follow Instagram"
-                    id="follow"
-                    name="follow"
+                    id="igFollow"
+                    name="igFollow"
                     accept="image/png, image/jpeg, image/jpg"
                     onChange={handleFileChange}
                     description="Upload screenshot bukti follow @invofest_harkatnegeri"
@@ -447,7 +365,7 @@ const RegisterSeminarPage: React.FC = () => {
         </div>
       </div>
 
-      {/* --- MODAL DITAMPILKAN DI SINI --- */}
+      {/* --- MODAL --- */}
       <SuccessModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}

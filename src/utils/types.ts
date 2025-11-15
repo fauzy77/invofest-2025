@@ -1,3 +1,5 @@
+import type React from "react";
+
 export type CustomHeroProps = {
   title: string;
   subtitle: string;
@@ -38,10 +40,34 @@ export type CustomEventsProps = {
 };
 
 export type EventWorkshopProps = {
-  icon?: JSX.Element;
+  icon?: React.ReactElement;
   id: number;
   title: string;
   place: string;
   date: string;
   time: string;
+};
+
+export type LoginResponse = {
+  token: string;
+  message?: string;
+  user?: {
+    id: string;
+    email: string;
+    name?: string;
+  };
+};
+
+export type ApiErrorResponse = {
+  message: string;
+  error?: string;
+};
+
+export type AuthContextType = {
+  token: string | null;
+  isLoading: boolean;
+  isHydrated: boolean;  
+  error: string | null;
+  login: (email: string, password: string) => Promise<LoginResponse>;
+  logout: () => void;
 };

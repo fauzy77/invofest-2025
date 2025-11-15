@@ -1,8 +1,11 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import SuccessModal from "@/components/common/SuccessModal"; // Import Modal
+import { eventAPI } from "../services/api"; // Import eventAPI
 
 // --- Tipe Data (Enums) ---
 type JenisKeikutsertaan = "mahasiswa" | "umum" | "";
@@ -179,34 +182,30 @@ const RegisterTalkshowPage: React.FC = () => {
 
     // --- PENGUMPULAN DATA ---
     const data = new FormData();
-    data.append("jenisKeikutsertaan", jenis);
-    data.append("biaya", harga.toString()); // <-- (3) Kirim harga dinamis
     data.append("email", formData.email);
-    data.append("namaLengkap", formData.namaLengkap);
-    data.append("noHp", formData.noHp);
+    data.append("fullName", formData.namaLengkap);
+    data.append("category", jenis.toUpperCase() as string);
+    data.append("whatsapp", formData.noHp);
+    data.append(
+      "institution",
+      formData.asalInstitusi || formData.semesterKelas || ""
+    );
 
-    if (jenis === "umum") {
-      data.append("asalInstitusi", formData.asalInstitusi);
-    } else if (jenis === "mahasiswa") {
-      data.append("semesterKelas", formData.semesterKelas);
-      data.append("nim", formData.nim);
-      if (files.ktm) {
-        data.append("file_ktm", files.ktm);
-      }
-    }
-
-    if (files.bayar) data.append("file_bayar", files.bayar);
-    if (files.follow) data.append("file_follow", files.follow);
+    if (files.bayar) data.append("payment", files.bayar);
+    if (files.follow) data.append("igFollow", files.follow);
 
     console.log("Data siap dikirim:", Object.fromEntries(data.entries()));
 
-    // --- SIMULASI API CALL ---
+    // --- API CALL ---
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      // throw new Error("Simulasi error: Gagal mendaftar.");
+      await eventAPI.registerTalkshow(data);
       setIsModalOpen(true);
-    } catch (err: any) {
-      setError(err.message || "Terjadi kesalahan.");
+    } catch (err: unknown) {
+      const error = err as Error;
+      const errorMessage =
+        error.message || "Terjadi kesalahan saat mendaftar. Silakan coba lagi.";
+      setError(errorMessage);
+      console.error("Registration error:", error.message);
     } finally {
       setIsLoading(false);
     }
@@ -220,8 +219,9 @@ const RegisterTalkshowPage: React.FC = () => {
   const showForm = jenis;
 
   // --- (4) DESKRIPSI PEMBAYARAN DI-UPDATE ---
-  const deskripsiFormat = `Format deskripsi: "${formData.namaLengkap || "[NamaLengkap]"
-    }_${harga > 0 ? `Talkshow_Invofest_2025_Rp.${harga}` : "[Talkshow_Harga]"}"`;
+  const deskripsiFormat = `Format deskripsi: "${
+    formData.namaLengkap || "[NamaLengkap]"
+  }_${harga > 0 ? `Talkshow_Invofest_2025_Rp.${harga}` : "[Talkshow_Harga]"}"`;
 
   const deskripsiBayarNode = (
     <div className="space-y-2 mt-1">
@@ -234,13 +234,17 @@ const RegisterTalkshowPage: React.FC = () => {
       {/* ---------------------------------- */}
       <p className="font-semibold">{deskripsiFormat}</p>
       <div className="text-slate-600">
-        <p className="font-medium">Biaya Pendaftaran dapat dilakukan melalui:</p>
+        <p className="font-medium">
+          Biaya Pendaftaran dapat dilakukan melalui:
+        </p>
         <ul className="list-disc list-inside ml-1 text-xs">
           <li>
-            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya Maylinah)
+            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya
+            Maylinah)
           </li>
           <li>
-            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya Maylinah)
+            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya
+            Maylinah)
           </li>
         </ul>
       </div>

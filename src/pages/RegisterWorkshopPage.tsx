@@ -1,16 +1,16 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import SuccessModal from "@/components/common/SuccessModal"; // Import Modal
+import { useNavigate } from "react-router-dom"; 
+import SuccessModal from "@/components/common/SuccessModal"; 
+import { eventAPI } from "../services/api"; 
 
-// --- Tipe Data (Enums) ---
 type JenisKeikutsertaan = "mahasiswa" | "umum" | "";
 type JenisWorkshop = "cyber" | "ai" | "mobile" | "";
-
-// --- Opsi untuk Select ---
 const jenisOptions = [
-  { value: "mahasiswa", label: "Mahasiswa" }, // Tambahkan info harga di label
+  { value: "mahasiswa", label: "Mahasiswa" }, 
   { value: "umum", label: "Umum" },
 ];
 
@@ -20,7 +20,6 @@ const workshopOptions = [
   { value: "mobile", label: "Mobile Development" },
 ];
 
-// --- Interface untuk State ---
 interface FormData {
   email: string;
   namaLengkap: string;
@@ -37,8 +36,6 @@ interface FormFiles {
   ktm: File | null;
 }
 
-// --- KOMPONEN REUSABLE (dimasukkan di sini agar mudah) ---
-// (InputGroup, SelectGroup, FileUploadGroup tidak berubah)
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
@@ -123,12 +120,10 @@ const FileUploadGroup: React.FC<FileProps> = ({
   </div>
 );
 
-// --- KOMPONEN UTAMA HALAMAN REGISTRASI ---
 const RegisterWorkshopPage: React.FC = () => {
-  // --- State Utama ---
   const [jenis, setJenis] = useState<JenisKeikutsertaan>("");
   const [workshop, setWorkshop] = useState<JenisWorkshop>("");
-  const [harga, setHarga] = useState<number>(0); // <-- (1) STATE HARGA BARU
+  const [harga, setHarga] = useState<number>(0); 
 
   const [formData, setFormData] = useState<FormData>({
     email: "",
@@ -151,23 +146,20 @@ const RegisterWorkshopPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
-  // --- Inisialisasi AOS ---
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // --- (2) useEffect BARU UNTUK SET HARGA ---
   useEffect(() => {
     if (jenis === "mahasiswa") {
       setHarga(50000);
     } else if (jenis === "umum") {
       setHarga(75000);
     } else {
-      setHarga(0); // Reset jika belum dipilih
+      setHarga(0); 
     }
-  }, [jenis]); // <-- Dijalankan setiap kali 'jenis' berubah
+  }, [jenis]); 
 
-  // --- Handlers ---
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -185,37 +177,34 @@ const RegisterWorkshopPage: React.FC = () => {
     setIsLoading(true);
     setError(null);
 
-    // --- PENGUMPULAN DATA ---
     const data = new FormData();
-    data.append("jenisKeikutsertaan", jenis);
-    data.append("jenisWorkshop", workshop);
-    data.append("biaya", harga.toString()); // <-- (3) Kirim harga dinamis
     data.append("email", formData.email);
-    data.append("namaLengkap", formData.namaLengkap);
-    data.append("noHp", formData.noHp);
+    data.append("fullName", formData.namaLengkap);
+    const workshopMap: { [key: string]: string } = {
+      cyber: "CYBER_SECURITY",
+      ai: "ARTIFICIAL_INTELLIGENCE",
+      mobile: "MOBILE_DEV",
+    };
+    data.append("workshop", workshopMap[workshop] || workshop);
+    data.append("category", jenis.toUpperCase() as string);
+    data.append("whatsapp", formData.noHp);
+    data.append(
+      "institution",
+      formData.asalInstitusi || formData.semesterKelas || ""
+    );
 
-    if (jenis === "umum") {
-      data.append("asalInstitusi", formData.asalInstitusi);
-    } else if (jenis === "mahasiswa") {
-      data.append("semesterKelas", formData.semesterKelas);
-      data.append("nim", formData.nim);
-      if (files.ktm) {
-        data.append("file_ktm", files.ktm);
-      }
-    }
+    if (files.bayar) data.append("payment", files.bayar);
+    if (files.follow) data.append("igFollow", files.follow);
 
-    if (files.bayar) data.append("file_bayar", files.bayar);
-    if (files.follow) data.append("file_follow", files.follow);
-
-    console.log("Data siap dikirim:", Object.fromEntries(data.entries()));
-
-    // --- SIMULASI API CALL ---
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      // throw new Error("Simulasi error: Gagal mendaftar.");
+      await eventAPI.registerWorkshop(data);
       setIsModalOpen(true);
-    } catch (err: any) {
-      setError(err.message || "Terjadi kesalahan.");
+    } catch (err: unknown) {
+      const error = err as Error;
+      const errorMessage =
+        error.message || "Terjadi kesalahan saat mendaftar. Silakan coba lagi.";
+      setError(errorMessage);
+      console.error("Registration error:", error.message);
     } finally {
       setIsLoading(false);
     }
@@ -228,30 +217,33 @@ const RegisterWorkshopPage: React.FC = () => {
 
   const showForm = jenis;
 
-  // --- (4) DESKRIPSI PEMBAYARAN DI-UPDATE ---
   const workshopLabel =
-    workshopOptions.find((o) => o.value === workshop)?.label || "[JenisWorkshop]";
-  const deskripsiFormat = `Format deskripsi: "${formData.namaLengkap || "[NamaLengkap]"
-    }_${workshopLabel}"`;
+    workshopOptions.find((o) => o.value === workshop)?.label ||
+    "[JenisWorkshop]";
+  const deskripsiFormat = `Format deskripsi: "${
+    formData.namaLengkap || "[NamaLengkap]"
+  }_${workshopLabel}"`;
 
   const deskripsiBayarNode = (
     <div className="space-y-2 mt-1">
-      {/* --- Gunakan state 'harga' di sini --- */}
       {harga > 0 && (
         <p className="font-semibold text-sm text-[#852e4e]">
           Total Biaya: Rp {harga.toLocaleString("id-ID")}
         </p>
       )}
-      {/* ---------------------------------- */}
       <p className="font-semibold">{deskripsiFormat}</p>
       <div className="text-slate-600">
-        <p className="font-medium">Biaya Pendaftaran dapat dilakukan melalui:</p>
+        <p className="font-medium">
+          Biaya Pendaftaran dapat dilakukan melalui:
+        </p>
         <ul className="list-disc list-inside ml-1 text-xs">
           <li>
-            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya Maylinah)
+            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya
+            Maylinah)
           </li>
           <li>
-            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya Maylinah)
+            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya
+            Maylinah)
           </li>
         </ul>
       </div>
@@ -265,7 +257,6 @@ const RegisterWorkshopPage: React.FC = () => {
           data-aos="fade-up"
           className="w-full max-w-lg p-6 sm:p-8 space-y-6 bg-white rounded-2xl shadow-xl"
         >
-          {/* --- Header --- */}
           <div className="text-center">
             <h1 className="text-3xl font-bold text-[#852e4e]">
               Registrasi Workshop
@@ -275,9 +266,7 @@ const RegisterWorkshopPage: React.FC = () => {
             </p>
           </div>
 
-          {/* --- FORM --- */}
           <form className="space-y-5" onSubmit={handleSubmit}>
-            {/* --- PESAN ERROR --- */}
             {error && (
               <div
                 data-aos="zoom-in"
@@ -287,7 +276,6 @@ const RegisterWorkshopPage: React.FC = () => {
               </div>
             )}
 
-            {/* --- Bagian 1: Jenis Keikutsertaan --- */}
             <fieldset className="space-y-4 p-4 border rounded-lg">
               <legend className="px-2 font-semibold text-slate-600">
                 Detail Pendaftaran
@@ -305,7 +293,6 @@ const RegisterWorkshopPage: React.FC = () => {
               />
             </fieldset>
 
-            {/* --- (5) TAMPILKAN HARGA SETELAH MEMILIH --- */}
             {harga > 0 && (
               <div
                 data-aos="zoom-in"
@@ -315,15 +302,12 @@ const RegisterWorkshopPage: React.FC = () => {
               </div>
             )}
 
-            {/* --- Bagian 2: Form Dinamis (Muncul setelah 'jenis' dipilih) --- */}
             {showForm && (
               <div data-aos="fade-in" className="space-y-6">
-                {/* --- Fields Umum --- */}
                 <fieldset className="space-y-4 p-4 border rounded-lg">
                   <legend className="px-2 font-semibold text-slate-600">
                     Data Peserta
                   </legend>
-                  {/* (Input Nama, Email, No.HP, Workshop tidak berubah) */}
                   <InputGroup
                     label="Nama Lengkap"
                     id="namaLengkap"
@@ -370,7 +354,6 @@ const RegisterWorkshopPage: React.FC = () => {
                     required
                   />
 
-                  {/* --- FIELDS KONDISIONAL --- */}
                   {jenis === "umum" && (
                     <div data-aos="zoom-in">
                       <InputGroup
@@ -412,7 +395,6 @@ const RegisterWorkshopPage: React.FC = () => {
                   )}
                 </fieldset>
 
-                {/* --- Fields Upload --- */}
                 <fieldset className="space-y-5 p-4 border rounded-lg">
                   <legend className="px-2 font-semibold text-slate-600">
                     Berkas Pendaftaran
@@ -439,7 +421,7 @@ const RegisterWorkshopPage: React.FC = () => {
                     name="bayar"
                     accept="image/png, image/jpeg, image/jpg"
                     onChange={handleFileChange}
-                    description={deskripsiBayarNode} // <-- Node ini sudah dinamis
+                    description={deskripsiBayarNode} 
                     disabled={isLoading}
                     required
                   />
@@ -455,7 +437,6 @@ const RegisterWorkshopPage: React.FC = () => {
                   />
                 </fieldset>
 
-                {/* --- Tombol Submit --- */}
                 <div className="pt-2">
                   <button
                     type="submit"
@@ -471,8 +452,7 @@ const RegisterWorkshopPage: React.FC = () => {
           </form>
         </div>
       </div>
-
-      {/* --- MODAL DITAMPILKAN DI SINI --- */}
+            
       <SuccessModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}

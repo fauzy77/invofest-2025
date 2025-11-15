@@ -6,7 +6,7 @@ export const dataSeminar = {
     "Seminar nasional yang membahas strategi dan arsitektur teknologi untuk menciptakan sistem di mana manusia dan AI bekerja sebagai mitra yang sinergis." +
 
     "Yang bertujuan mengubah paradigma dari persaingan menjadi kolaborasi, serta meningkatkan pengetahuan peserta dalam merancang teknologi AI yang berpusat pada manusia.",
-  linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSe-f-Fcyi6ZTDr3FsPabA2Mvf0qISUq0Lw00-WsIhVXMmpIKw/viewform?usp=preview",
+  linkRegister: "/seminar/register",
   image: "/assets/Maskot-Seminar.png",
   aboutTitle: "Tentang  IT SEMINAR",
   aboutDescription: `Seminar bertajuk “Human-AI Integration: Merancang Arsitektur Kolaboratif, Di tengah pesatnya kemajuan kecerdasan buatan (AI), narasi yang sering muncul adalah tentang persaingan antara manusia dan mesin. Kekhawatiran akan penggantian peran manusia oleh teknologi cerdas menjadi diskusi utama di berbagai sektor. Namun, bagaimana jika kita mengubah paradigma tersebut?
@@ -38,7 +38,7 @@ export const dataTalkshow = {
     "“Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan”",
   heroDescription: `Talkshow “Humanizing Technology: Kolaborasi Manusia dan AI di Masa Depan” Sebuah diskusi interaktif yang mengeksplorasi cara mengintegrasikan nilai-nilai kemanusiaan seperti etika, empati, dan kreativitas ke dalam pengembangan kecerdasan buatan.
                     yang bertujuan menginspirasi audiens untuk membangun dan memanfaatkan AI sebagai alat kolaboratif yang memperkuat potensi unik manusia, bukan sebagai penggantinya.`,
-  linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSc2bJFA8OAmN3BgNsBgM_QTzXGT0bbzuA-Zhezq0LPL2_P6WQ/viewform?usp=preview",
+  linkRegister: "/talkshow/register",
   image: "/assets/Maskot-Talkshow.png",
   aboutTitle: "Tentang IT Talkshow",
   aboutDescription: `Seiring teknologi, khususnya kecerdasan buatan (AI), yang semakin meresap ke dalam setiap aspek kehidupan kita, muncul sebuah pertanyaan fundamental: Apakah kita sedang menciptakan teknologi yang melayani manusia, atau justru sebaliknya?
@@ -81,7 +81,7 @@ export const dataWorkshop = {
   heroDescription: `IT Workshop ini menjembatani antara potensi Generasi Z dan kekuatan AI untuk menciptakan masa depan 
                 yang berkelanjutan. Peserta akan dibekali wawasan dan alat untuk mentransformasi ide-ide 
                 inovatif menjadi solusi lingkungan yang nyata dan terukur di era digital.`,
-  linkRegister: "https://docs.google.com/forms/d/e/1FAIpQLSf-d10tv8DRY19Z0ZelCsAIOF6-qK9mKcCZQM6_SpwtAsUHOw/viewform?usp=preview",
+  linkRegister: "/workshop/register",
   image: "/assets/Maskot-Workshop.png",
   aboutTitle: "Tentang IT Workshop",
   aboutDescription: `Workshop “AI for a Sustainable Future: The Role of Z Generation in the Digital Era” ini didesain khusus untuk Generasi Z, 

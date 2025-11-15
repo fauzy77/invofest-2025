@@ -1,31 +1,24 @@
-// src/pages/RegisterUiUxPage.tsx
+"use client";
 
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
-import SuccessModal from "@/components/common/SuccessModal"; // <-- (1) Import Modal
+import SuccessModal from "@/components/common/SuccessModal"; 
+import { competitionAPI } from "@/services/api"; 
 
-// --- (2) KONSTANTA SPESIFIK UNTUK FORM INI ---
 const NAMA_LOMBA = "UI/UX Design";
 const HARGA_LOMBA = 85000;
 
-// --- Tipe Data (Enums) ---
-type JenisKeikutsertaan = "mahasiswa" | "siswa" | "";
 type TipePendaftaran = "tim" | "individu" | "";
-
-// --- Opsi untuk Select ---
-const jenisOptions = [
-  { value: "siswa", label: "Siswa" },
-  { value: "mahasiswa", label: "Mahasiswa" },
-];
 
 const tipeOptions = [
   { value: "individu", label: "Individu" },
   { value: "tim", label: "Tim" },
 ];
 
-// --- Interface untuk State ---
+const degreeOptions = [{ value: "MAHASISWA", label: "Mahasiswa" }];
+
 interface FormData {
   // Tim
   namaTim: string;
@@ -39,9 +32,10 @@ interface FormData {
   // Anggota Tim
   anggota1: string;
   anggota2: string;
-  // (Anggota 3 tidak ada di UI/UX)
+  anggota3: string;
   // Umum
   asalInstansi: string;
+  degree: string;
 }
 
 interface FormFiles {
@@ -50,8 +44,6 @@ interface FormFiles {
   follow: File | null;
 }
 
-// --- KOMPONEN REUSABLE (dimasukkan di sini agar mudah) ---
-// (InputGroup, SelectGroup, FileUploadGroup... copy-paste dari kode lama)
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
@@ -136,12 +128,8 @@ const FileUploadGroup: React.FC<FileProps> = ({
   </div>
 );
 
-// --- KOMPONEN UTAMA HALAMAN REGISTRASI ---
 const RegisterUiUxPage: React.FC = () => {
-  // --- State Utama ---
-  const [jenis, setJenis] = useState<JenisKeikutsertaan>("");
   const [tipe, setTipe] = useState<TipePendaftaran>("");
-  // (State 'lomba' dan 'harga' dihapus, karena sudah fix)
 
   const [formData, setFormData] = useState<FormData>({
     namaTim: "",
@@ -153,7 +141,9 @@ const RegisterUiUxPage: React.FC = () => {
     noHp: "",
     anggota1: "",
     anggota2: "",
+    anggota3: "",
     asalInstansi: "",
+    degree: "",
   });
 
   const [files, setFiles] = useState<FormFiles>({
@@ -165,24 +155,17 @@ const RegisterUiUxPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // --- (3) State dan Handler untuk Modal ---
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    // window.location.reload(); // Reset form
-    // atau
-     navigate("/competition/ui-ux"); // Pindah ke home
+    navigate("/competition/ui-ux"); 
   };
-  // ----------------------------------------
-
-  // --- Inisialisasi AOS ---
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // --- Handlers ---
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -195,61 +178,56 @@ const RegisterUiUxPage: React.FC = () => {
     }
   };
 
-  // --- (4) handleSubmit di-update ---
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
 
-    const data = new FormData();
-    data.append("jenisKeikutsertaan", jenis);
-    data.append("tipePendaftaran", tipe);
-    data.append("kompetisi", NAMA_LOMBA); // <-- Data fix
-    data.append("biaya", HARGA_LOMBA.toString()); // <-- Data fix
-
-    // Tambahkan data teks
-    if (tipe === "tim") {
-      data.append("namaTim", formData.namaTim);
-      data.append("namaKetua", formData.namaKetua);
-      data.append("emailKetua", formData.emailKetua);
-      data.append("noHpKetua", formData.noHpKetua);
-      data.append("anggota1", formData.anggota1);
-      data.append("anggota2", formData.anggota2);
-    } else {
-      // Individu
-      data.append("namaLengkap", formData.namaLengkap);
-      data.append("email", formData.email);
-      data.append("noHp", formData.noHp);
-    }
-    data.append("asalInstansi", formData.asalInstansi);
-
-    // Tambahkan file
-    if (files.ktm) data.append("file_ktm", files.ktm);
-    if (files.bayar) data.append("file_bayar", files.bayar);
-    if (files.follow) data.append("file_follow", files.follow);
-
-    console.log("Data siap dikirim:", Object.fromEntries(data.entries()));
-
-    // --- SIMULASI API CALL ---
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      // throw new Error("Simulasi error: Gagal mendaftar.");
-      
-      // Ganti alert dengan modal
-      // alert("Pendaftaran Berhasil!");
-      setIsModalOpen(true); // <-- Tampilkan modal
+      const formDataToSend = new FormData();
+      formDataToSend.append("competition", "UIUX");
+      formDataToSend.append("degree", formData.degree);
 
-    } catch (err: any) {
-      setError(err.message || "Terjadi kesalahan.");
+      if (tipe === "tim") {
+        formDataToSend.append("participantType", "TEAM");
+        formDataToSend.append("teamName", formData.namaTim);
+        formDataToSend.append("leaderName", formData.namaKetua);
+        formDataToSend.append("email", formData.emailKetua);
+        formDataToSend.append("whatsapp", formData.noHpKetua);
+        const teamMembers = [
+          { name: formData.anggota1 },
+          { name: formData.anggota2 },
+          { name: formData.anggota3 },
+        ].filter((m) => m.name.trim() !== "");
+        formDataToSend.append("teamMembers", JSON.stringify(teamMembers));
+      } else {
+        formDataToSend.append("participantType", "INDIVIDU");
+        formDataToSend.append("fullName", formData.namaLengkap);
+        formDataToSend.append("email", formData.email);
+        formDataToSend.append("whatsapp", formData.noHp);
+      }
+
+      formDataToSend.append("school", formData.asalInstansi);
+      if (files.ktm) formDataToSend.append("memberCard", files.ktm);
+      if (files.bayar) formDataToSend.append("payment", files.bayar);
+      if (files.follow) formDataToSend.append("igFollow", files.follow);
+
+      const response = await competitionAPI.register(formDataToSend);
+      console.log("Competition registration response:", response);
+
+      setIsModalOpen(true);
+    } catch (err: unknown) {
+      const error = err as Error;
+      const errorMessage = error.message || "Terjadi kesalahan saat mendaftar.";
+      console.error("Registration error:", error.message as string | undefined);
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // --- Variabel bantu untuk JSX ---
-  const showForm = jenis && tipe; // <-- Disederhanakan
+  const showForm = tipe; 
 
-  // --- (5) deskripsiBayarNode di-update ---
   const namaUntukBayar =
     tipe === "tim" ? formData.namaTim : formData.namaLengkap;
 
@@ -264,13 +242,17 @@ const RegisterUiUxPage: React.FC = () => {
       </p>
       <p className="font-semibold">{deskripsiFormat}</p>
       <div className="text-slate-600">
-        <p className="font-medium">Biaya Pendaftaran dapat dilakukan melalui:</p>
+        <p className="font-medium">
+          Biaya Pendaftaran dapat dilakukan melalui:
+        </p>
         <ul className="list-disc list-inside ml-1 text-xs">
           <li>
-            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya Maylinah)
+            <span className="font-bold">BCA:</span> 1330656138 (a.n Utiya
+            Maylinah)
           </li>
           <li>
-            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya Maylinah)
+            <span className="font-bold">SEABANK:</span> 901680375767 (a.n Utiya
+            Maylinah)
           </li>
         </ul>
       </div>
@@ -312,17 +294,6 @@ const RegisterUiUxPage: React.FC = () => {
                 Detail Pendaftaran
               </legend>
               <SelectGroup
-                label="Jenis Keikutsertaan"
-                id="jenis"
-                name="jenis"
-                value={jenis}
-                onChange={(e) => setJenis(e.target.value as JenisKeikutsertaan)}
-                options={jenisOptions} // <-- UI/UX punya 2 opsi
-                placeholder="Pilih jenis keikutsertaan..."
-                disabled={isLoading}
-                required
-              />
-              <SelectGroup
                 label="Tipe Pendaftaran"
                 id="tipe"
                 name="tipe"
@@ -330,12 +301,21 @@ const RegisterUiUxPage: React.FC = () => {
                 onChange={(e) => setTipe(e.target.value as TipePendaftaran)}
                 options={tipeOptions}
                 placeholder="Pilih tipe pendaftaran..."
-                disabled={isLoading || !jenis}
                 required
               />
-              
-              {/* --- Dropdown Lomba Dihapus --- */}
-              
+              <SelectGroup
+                label="Tingkat Pendidikan"
+                id="degree"
+                name="degree"
+                value={formData.degree}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, degree: e.target.value }))
+                }
+                options={degreeOptions}
+                placeholder="Pilih tingkat pendidikan..."
+                required
+              />
+
               {/* --- Tampilkan Harga Fix --- */}
               <div
                 data-aos="zoom-in"
@@ -348,7 +328,6 @@ const RegisterUiUxPage: React.FC = () => {
             {/* --- Bagian 2: Form Dinamis --- */}
             {showForm && (
               <div data-aos="fade-in" className="space-y-6">
-                
                 {/* --- FIELDS UNTUK TIM --- */}
                 {tipe === "tim" && (
                   <fieldset className="space-y-4 p-4 border rounded-lg">
@@ -398,14 +377,20 @@ const RegisterUiUxPage: React.FC = () => {
                       required
                     />
                     <InputGroup
-                      label="Nama Anggota 2"
+                      label="Nama Anggota 2 (Opsional)"
                       id="anggota2"
                       name="anggota2"
                       value={formData.anggota2}
                       onChange={handleTextChange}
-                      required
                     />
-                    {/* --- Anggota 3 TIDAK ADA --- */}
+                    <InputGroup
+                      label="Nama Anggota 3 (Opsional)"
+                      id="anggota3"
+                      name="anggota3"
+                      value={formData.anggota3}
+                      onChange={handleTextChange}
+                    />
+                    {/* --- Anggota 3 KINI ADA --- */}
                   </fieldset>
                 )}
 
@@ -489,7 +474,7 @@ const RegisterUiUxPage: React.FC = () => {
                     required
                   />
                 </fieldset>
-                
+
                 {/* --- Tombol Submit --- */}
                 <div className="pt-2">
                   <button
@@ -503,7 +488,7 @@ const RegisterUiUxPage: React.FC = () => {
                 </div>
               </div>
             )}
-            
+
             {/* Link Login (jika form belum muncul)
             {!showForm && (
               <div className="text-center text-sm text-slate-500 pt-4">
@@ -516,20 +501,17 @@ const RegisterUiUxPage: React.FC = () => {
                 </Link>
               </div>
             )} */}
-            
           </form>
         </div>
       </div>
 
-      {/* --- (7) RENDER MODAL DI SINI --- */}
       <SuccessModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title="Pendaftaran Lomba Berhasil!"
       >
-        Terima kasih telah mendaftar sebagai peserta lomba. 
-        Panitia akan segera mengecek data anda. Dan Setelah itu anda 
-        akan di masukan ke grub wa.
+        Terima kasih telah mendaftar sebagai peserta lomba. Panitia akan segera
+        mengecek data anda. Dan Setelah itu anda akan di masukan ke grub wa.
       </SuccessModal>
     </React.Fragment>
   );

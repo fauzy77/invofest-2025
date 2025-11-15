@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-// import AOS from "aos"; // <-- Dihapus
-import "aos/dist/aos.css"; // <-- Dihapus
-// Mengaktifkan useNavigate untuk redirect
-import { useNavigate } from "react-router-dom"; 
+"use client";
 
-// Menambahkan interface global untuk window.AOS agar TypeScript tidak error
+import type React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+
 declare global {
   interface Window {
     AOS: {
-      init: (options?: any) => void;
+      init: (options?: unknown) => void;
       refresh: () => void;
-      // tambahkan method AOS lain jika perlu
     };
   }
 }
@@ -18,81 +17,50 @@ declare global {
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
-  // --- STATE BARU UNTUK HANDLER ---
-  const [isLoading, setIsLoading] = useState(false); // <-- (1) State untuk loading
-  const [error, setError] = useState<string | null>(null); // <-- (2) State untuk pesan error
 
-  // Mengaktifkan hook useNavigate
-  const navigate = useNavigate(); 
+  const { token, isLoading, error: authError, login } = useAuth();
+  const navigate = useNavigate();
 
-  // Inisialisasi AOS dari CDN
   useEffect(() => {
-    // 1. Load AOS CSS
     const cssLink = document.createElement("link");
     cssLink.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
     cssLink.rel = "stylesheet";
     document.head.appendChild(cssLink);
 
-    // 2. Load AOS Script
     const script = document.createElement("script");
     script.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
     script.async = true;
     script.onload = () => {
-      // 3. Inisialisasi AOS setelah skrip dimuat
       if (window.AOS) {
         window.AOS.init({ duration: 1000, once: true });
       }
     };
     document.body.appendChild(script);
 
-    // 4. Cleanup function untuk menghapus script dan link saat komponen di-unmount
     return () => {
       try {
         document.head.removeChild(cssLink);
         document.body.removeChild(script);
       } catch (e) {
-        // Mencegah error jika elemen sudah terhapus
         console.warn("Gagal membersihkan AOS script/link.", e);
       }
     };
   }, []);
 
-  // --- HANDLER YANG LEBIH BAIK ---
+  useEffect(() => {
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [token, navigate]);
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Mencegah reload halaman
-    
-    // 1. Mulai proses loading & bersihkan error lama
-    setIsLoading(true);
-    setError(null);
+    e.preventDefault();
 
-    // 2. Simulasikan pemanggilan API (misalnya 2 detik)
     try {
-      // --- Ini adalah bagian yang kamu ganti dengan API call (fetch/axios) ---
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (email === "user@invofest.com" && password === "123456") {
-            resolve("Login berhasil!");
-          } else {
-            reject(new Error("Email atau password yang Anda masukkan salah."));
-          }
-        }, 2000); // <-- Simulasi delay 2 detik
-      });
-      // ---------------------------------------------------------------------
-
-      // 3. Handle jika Sukses
-      console.log("Login Berhasil:", { email });
-      // Di aplikasi nyata, kamu akan menyimpan token dan redirect
-      // alert("Login Berhasil!");
-      
-      // PERMINTAAN ANDA: Redirect ke dashboard setelah sukses
-      navigate("/dashboard"); 
-      
-    } catch (err: any) { // 4. Handle jika Error
-      setError(err.message || "Terjadi kesalahan, silakan coba lagi.");
-    
-    } finally { // 5. Selesai (baik sukses atau error)
-      setIsLoading(false); // <-- Stop loading
+      await login(email, password);
+    } catch (err: unknown) {
+      const error = err as Error;
+      console.error("Login error:", error.message);
     }
   };
 
@@ -104,17 +72,12 @@ const LoginPage: React.FC = () => {
       >
         {/* --- Header --- */}
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-[#852e4e]">
-            Selamat Datang!
-          </h1>
-          <p className="mt-2 text-slate-500">
-            Silakan login untuk melanjutkan
-          </p>
+          <h1 className="text-3xl font-bold text-[#852e4e]">Selamat Datang!</h1>
+          <p className="mt-2 text-slate-500">Silakan login untuk melanjutkan</p>
         </div>
 
         {/* --- Form Login --- */}
         <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* ... (Input Email & Password masih sama) ... */}
           <div>
             <label
               htmlFor="email"
@@ -131,7 +94,7 @@ const LoginPage: React.FC = () => {
               placeholder="email@anda.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              disabled={isLoading} // <-- Nonaktifkan input saat loading
+              disabled={isLoading}
             />
           </div>
           <div>
@@ -142,13 +105,6 @@ const LoginPage: React.FC = () => {
               >
                 Password
               </label>
-              {/* Link ini masih dikomentari sesuai kode asli Anda */}
-              {/* <Link
-                to="/forgot-password"
-                className="text-sm text-[#852e4e] hover:underline"
-              >
-                Lupa Password?
-              </Link> */}
             </div>
             <input
               type="password"
@@ -159,47 +115,33 @@ const LoginPage: React.FC = () => {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              disabled={isLoading} // <-- Nonaktifkan input saat loading
+              disabled={isLoading}
             />
           </div>
 
-          {/* --- MENAMPILKAN PESAN ERROR --- */}
-          {error && ( // <-- (3) Tampilkan box error jika state 'error' ada isinya
-            <div 
+          {authError && (
+            <div
               data-aos="zoom-in"
               className="p-3 text-center text-sm text-red-800 bg-red-100 border border-red-300 rounded-lg"
             >
-              {error}
+              {authError}
             </div>
           )}
 
-          {/* --- TOMBOL SUBMIT --- */}
           <div>
             <button
               type="submit"
-              disabled={isLoading} // <-- (4) Nonaktifkan tombol saat loading
+              disabled={isLoading}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-white bg-[#852e4e] hover:bg-[#4c1d3d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#852e4e] font-semibold transition duration-200
-                          disabled:opacity-50 disabled:cursor-not-allowed" // <-- (5) Style saat disabled
+                          disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? "Memproses..." : "Login"} {/* <-- (6) Ubah teks saat loading */}
+              {isLoading ? "Memproses..." : "Login"}
             </button>
           </div>
         </form>
-
-        {/* --- Footer (Link ke Register) --- */}
-        {/* <div className="text-center text-sm text-slate-500">
-          Belum punya akun?{" "}
-          <Link
-            to="/register"
-            className="font-medium text-[#852e4e] hover:underline"
-          >
-            Daftar di sini
-          </Link>
-        </div> */}
       </div>
     </div>
   );
 };
 
 export default LoginPage;
-
