@@ -53,7 +53,7 @@ export const dataTalkshow = {
     {
       name: "M. Zaim Zamzami",
       position: "Programmer, PT. Pertamina Drilling Service Indonesia",
-      image: "/assets/workshop/cooming.png",
+      image: "/assets/talkshow/talkshow zaim zamzami.png",
     },
     {
       name: "Daffa Zuhdan Muhtar",
