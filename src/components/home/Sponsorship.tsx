@@ -29,53 +29,6 @@ export function Sponsorship() {
           speed="slow"
         />
 
-        {/* --- Bagian Open Sponsorship --- */}
-        <div 
-          data-aos="fade-up" 
-          data-aos-delay="200" 
-          className="text-center mt-10 sm:mt-16 px-4"
-        >
-          <h2 className="text-xl sm:text-2xl font-semibold text-slate-700">
-            Open Sponsorship
-          </h2>
-          <p className="text-md sm:text-lg text-slate-500 mt-2 mb-6 max-w-xl mx-auto">
-            Kami membuka peluang bagi brand dan perusahaan Anda untuk berkolaborasi 
-            dan menjadi bagian dari kesuksesan INVOFEST 2025.
-          </p>
-
-          {/* --- [BARU] Wrapper untuk Tombol --- */}
-          {/* Menggunakan flex-col untuk menyusun tombol ke bawah */}
-          <div className="flex flex-col items-center gap-4">
-            
-            {/* Tombol 1: WhatsApp */}
-            <a
-              href="https://wa.me/62895605919551?text=Halo,%20saya%20tertarik%20untuk%20menjadi%20sponsor%20INVOFEST%202025."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto text-center px-8 py-3 bg-invofest text-white font-bold rounded-lg shadow-lg hover:bg-invofest-dark transition-all duration-300 transform hover:scale-105"
-              aria-label="Hubungi kami via WhatsApp untuk menjadi sponsor"
-            >
-              Hubungi Kami (WhatsApp)
-            </a>
-
-            {/* --- [BARU] Tombol 2: Proposal --- */}
-            {/* Pastikan mengganti href dengan link ke file PDF proposal Anda */}
-            <a
-              href="https://drive.google.com/file/d/1JPE5JGNLjzBfSD0ifImGthXoiUQSTVV5/view?usp=drive_link" // <-- GANTI INI
-              target="_blank"
-              rel="noopener noreferrer"
-              // Style sebagai tombol sekunder (outline)
-              className="w-full sm:w-auto text-center px-8 py-3 bg-white text-invofest border border-invofest font-bold rounded-lg shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
-              aria-label="Lihat atau unduh proposal sponsorship"
-            >
-              Lihat Proposal
-            </a>
-            {/* --- Akhir Bagian Baru --- */}
-          </div>
-          
-        </div>
-        {/* --- Akhir Bagian Open Sponsorship --- */}
-
       </div>
     </React.Fragment>
   );
@@ -85,18 +38,31 @@ const sponsorLogo = [
   {
     id: 1,
     img_path: "/assets/sponsor/bahari_inn.jpg",
+    // link: "https://bahariinn.co.id"
   },
   {
     id: 2,
     img_path: "/assets/sponsor/big_berry.png",
+    // link: "https://bigberry.id"
   },
   {
     id: 3,
     img_path: "/assets/sponsor/indo_print.jpg",
+    // link: "https://indoprint.co.id"
   },
   {
     id: 4,
     img_path: "/assets/sponsor/plaza_hotel_tegal.jpg",
+    link: "https://plazategal.hoteltegal.com"
   },
-  // ... sponsor lainnya
+  {
+    id: 5,
+    img_path: "/assets/sponsor/dicoding_official.png",
+    link: "https://www.dicoding.com"
+  },
+  {
+    id: 6,
+    img_path: "/assets/sponsor/domainesia.png",
+    link: "https://www.domainesia.com"
+  },
 ];

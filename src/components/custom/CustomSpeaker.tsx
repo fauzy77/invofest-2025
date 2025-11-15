@@ -34,6 +34,7 @@ const CustomSpeaker = ({ data }: CustomSpeakerProps) => {
                   name={item.name}
                   position={item.position}
                   image={item.image}
+                  title={item.title}
                 />
               );
             })}

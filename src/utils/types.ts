@@ -27,6 +27,7 @@ export type CardSpeakerProps = {
   name: string;
   position: string;
   image: string;
+  title: string;
 };
 
 export type CustomEventsProps = {

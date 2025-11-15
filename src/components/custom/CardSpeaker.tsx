@@ -2,7 +2,7 @@ import React from "react";
 import AOS from "aos";
 import { CardSpeakerProps } from "@/utils/types";
 
-function CardSpeaker({ delay, name, position, image }: CardSpeakerProps) {
+function CardSpeaker({ delay, name, position, image, title }: CardSpeakerProps) {
   React.useEffect(() => {
     AOS.init({
       once: true,
@@ -25,6 +25,7 @@ function CardSpeaker({ delay, name, position, image }: CardSpeakerProps) {
           {name}
         </h3>
         <p className="sm:text-lg text-slate-500">{position}</p>
+        <p className="sm:text-lg text-slate-500">{title}</p>
       </div>
     </div>
   );

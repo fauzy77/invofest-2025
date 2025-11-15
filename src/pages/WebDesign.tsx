@@ -119,40 +119,54 @@ const WebdesignCompetition: React.FC = () => {
                     <div className="max-w-screen-xl mx-auto px-6 text-center">
                         <h2
                             data-aos="zoom-in"
-                            className="text-2xl md:text-3xl font-bold text-[#852e4e] mb-8"
+                            className="text-2xl md:text-3xl font-bold text-[#852e4e] mb-4"
                         >
                             KATEGORI HADIAH
                         </h2>
 
+                        {/* Keterangan Besar */}
+                        <p
+                            data-aos="fade-up"
+                            className="text-lg md:text-xl font-semibold text-slate-700 mb-8"
+                        >
+                            🎉 Total Hadiah <span className="text-[#852e4e]">Jutaan Rupiah</span>
+                        </p>
+
                         <div className="flex flex-wrap justify-center gap-8">
                             {[
                                 {
+                                    title: "Semua Peserta",
+                                    prize: "📜 Sertifikat",
+                                    bonus: [
+                                        "Mendapatkan e-Sertifikat resmi",
+                                    ],
+                                },
+                                {
                                     title: "Juara I",
-                                    prize: "Rp. 500.000",
-                                    bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                                    prize: "Trophy + Uang Pembinaan",
+                                    bonus: ["🏆 Trophy", "💰 Uang Pembinaan", "📜 e-Sertifikat"],
                                 },
                                 {
                                     title: "Juara II",
-                                    prize: "Rp. 400.000",
-                                    bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                                    prize: "Trophy + Uang Pembinaan",
+                                    bonus: ["🏆 Trophy", "💰 Uang Pembinaan", "📜 e-Sertifikat"],
                                 },
                                 {
                                     title: "Juara III",
-                                    prize: "Rp. 300.000",
-                                    bonus: ["🏆 Trophy", "📜 e-Sertifikat"],
+                                    prize: "Trophy + Uang Pembinaan",
+                                    bonus: ["🏆 Trophy", "💰 Uang Pembinaan", "📜 e-Sertifikat"],
                                 },
                             ].map((item, index) => (
                                 <div
                                     key={index}
                                     data-aos="fade-up"
                                     data-aos-delay={index * 150}
-                                    className="w-[220px] border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+                                    className="w-[240px] border-2 border-[#852e4e] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 bg-white"
                                 >
                                     <div className="text-5xl mb-3 text-[#852e4e]">🏆</div>
                                     <h3 className="font-semibold text-lg">{item.title}</h3>
                                     <p className="text-slate-600 mt-2 font-medium">{item.prize}</p>
 
-                                    {/* Bonus tambahan seperti Trophy & Sertifikat */}
                                     {item.bonus.length > 0 && (
                                         <ul className="mt-3 text-sm text-slate-600 space-y-1">
                                             {item.bonus.map((bonus, i) => (
@@ -165,6 +179,7 @@ const WebdesignCompetition: React.FC = () => {
                         </div>
                     </div>
                 </section>
+
 
                 {/* TIMELINE EVENT */}
                 <section className="bg-invofest_secondary w-full relative overflow-hidden">

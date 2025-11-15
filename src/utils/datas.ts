@@ -14,20 +14,20 @@ export const dataSeminar = {
                     Kami bertujuan untuk menggeser fokus dari ketakutan akan kompetisi menjadi eksplorasi peluang kolaborasi. Seminar ini akan mengupas tuntas bagaimana kita dapat merancang sistem, etika, dan lingkungan kerja di mana AI berfungsi sebagai mitra yang memperkuat kecerdasan, kreativitas, dan produktivitas manusia—bukan sebagai pengganti.`,
   speakers: [
     {
-      name: "Cooming Soon",
-      position: "AI Strategist & Consultant",
-      image: "/assets/workshop/cooming.png",
+      name: "Dery Agung Triyadi",
+      position: "Aws Indonesia",
+      image: "/assets/seminar/Seminar Dery.png",
     },
     {
-      name: "Cooming Soon",
-      position: "Head of AI Solutions at Dicoding",
-      image: "/assets/workshop/cooming.png",
+      name: "Sowam Habibi",
+      position: "Google Indonesia",
+      image: "/assets/seminar/seminar sowam.png",
     },
   ],
   events: {
     title: "IT Seminar",
     place: "Aula Gedung C",
-    time: "08.00 WIB - 12.30 WIB",
+    time: "08.00 WIB - 12.00 WIB",
     date: "Kamis, 27 November 2025",
   },
 };
@@ -46,25 +46,30 @@ export const dataTalkshow = {
                     Acara ini dirancang bukan untuk membahas teknologi sebagai entitas yang dingin dan terpisah, melainkan untuk menggali bagaimana kita dapat menanamkan nilai-nilai kemanusiaan—seperti empati, etika, dan kreativitas—ke dalam inti pengembangan AI. Kami akan mengupas tuntas visi masa depan di mana AI tidak menjadi pesaing, tetapi menjadi mitra kolaboratif yang memperkuat potensi unik manusia.`,
   speakers: [
     {
-      name: "Cooming Soon",
-      position: "AI Ethicist & Researcher",
+      name: "Moh. Ichsan Maulana",
+      position: "Human Capital Information System (HCIS), PT. Garuda Daya Pratama Sejahtera",
+      image: "/assets/talkshow/talkshow ichsan.png",
+    },
+    {
+      name: "M. Zaim Zamzami",
+      position: "Programmer, PT. Pertamina Drilling Service Indonesia",
       image: "/assets/workshop/cooming.png",
     },
     {
-      name: "cooming Soon",
-      position: "CTO & Co-Founder Arkademi",
-      image: "/assets/workshop/cooming.png",
+      name: "Daffa Zuhdan Muhtar",
+      position: "Android Developer, PT. Astra Internasional",
+      image: "/assets/talkshow/talkshow daffa.png",
     },
     {
-      name: "cooming Soon",
-      position: "Head of AI Research at Kata.ai",
-      image: "/assets/workshop/cooming.png",
-    },
+      name: "Bayu Adi Prasetiyo",
+      position: "Software Engineer, KOMPAS.ID",
+      image: "/assets/talkshow/talkshow bayu.png",
+    }
   ],
   events: {
     title: "IT Talkshow",
     place: "Aula Gedung C",
-    time: "08.00 WIB - 12.30 WIB",
+    time: "08.00 WIB - 12.00 WIB",
     date: "Senin, 24 November 2025",
   },
 };
@@ -88,16 +93,19 @@ export const dataWorkshop = {
       name: "Lhuqita Fazry",
       position: "Mobile Development",
       image: "assets/workshop/workshop mobile.png",
+      title: "Developer, Founder Rumah Coding Indonesia",
     },
     {
-      name: "Cooming Soon",
+      name: "M. Dendi Purwanto",
       position: "Artificial Intelligence",
-      image: "assets/workshop/cooming.png",
+      image: "assets/workshop/workshop AI.png",
+      title: "Software Engineer, PT. Mayar Kernel Supernova",
     },
     {
-      name: "Cooming Soon",
+      name: "Danang Avan M",
       position: "Cyber Security",
-      image: "assets/workshop/cooming.png",
+      image: "assets/workshop/talkshow cyber.png",
+      title: "Security Analyst, Founder | Contributor TegalSec",
     },
   ],
   events: [

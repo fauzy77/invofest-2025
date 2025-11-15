@@ -87,4 +87,12 @@ const mediaPartner = [
     id: 14,
     img_path: "/assets/media_partner/logo hima elektro.png",
   },
+  {
+    id: 15,
+    img_path: "/assets/media_partner/Logo warga tech.png",
+  },
+  {
+    id: 16,
+    img_path: "/assets/media_partner/HMPTI_ITB_STIKOM_BALI.png",
+  }
 ];
