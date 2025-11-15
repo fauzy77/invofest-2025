@@ -26,6 +26,7 @@ import { PenWorkshop } from "./pages/dashboard/PWorkshop";
 import { PenComPoster } from "./pages/dashboard/competition/PCPoster";
 import { PenComUiUx } from "./pages/dashboard/competition/PCUiux";
 import { PenComWeb } from "./pages/dashboard/competition/PCWeb";
+import { ProtectedRoute } from "./components/custom/ProtectedRoute";
 import "aos/dist/aos.css";
 
 const App = () => {
@@ -46,21 +47,40 @@ const App = () => {
           <Route path="/seminar" element={<Seminar />} />
           <Route path="/competition" element={<Competition />} />
           <Route path="/competition/poster" element={<Poster />} />
-          <Route path="/competition/web-design" element={<WebdesignCompetition />} />
+          <Route
+            path="/competition/web-design"
+            element={<WebdesignCompetition />}
+          />
           <Route path="/competition/ui-ux" element={<UiUx />} />
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/login-admin" element={<LoginPage />} />
           <Route path="/workshop/register" element={<RegisterWorkshopPage />} />
-          <Route path="/competition/ui-ux/register" element={<RegisterUiUxPage />} />
-          <Route path="/competition/poster/register" element={<RegisterPosterPage />} />
-          <Route path="/competition/web-design/register" element={<RegisterWebPage />} />
+          <Route
+            path="/competition/ui-ux/register"
+            element={<RegisterUiUxPage />}
+          />
+          <Route
+            path="/competition/poster/register"
+            element={<RegisterPosterPage />}
+          />
+          <Route
+            path="/competition/web-design/register"
+            element={<RegisterWebPage />}
+          />
           <Route path="/seminar/register" element={<RegisterSeminarPage />} />
           <Route path="/talkshow/register" element={<RegisterTalkshowPage />} />
 
-          <Route path="/dashboard" element={<Dashboard />}> 
-            <Route index element={<HomeAdmin />} ></Route>
-            <Route path="seminar" element={<PenSeminar/>} />
-            <Route path="talkshow" element={<PenTalkshow/>} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<HomeAdmin />}></Route>
+            <Route path="seminar" element={<PenSeminar />} />
+            <Route path="talkshow" element={<PenTalkshow />} />
             <Route path="workshop" element={<PenWorkshop />} />
             <Route path="competition/poster" element={<PenComPoster />} />
             <Route path="competition/uiux" element={<PenComUiUx />} />
