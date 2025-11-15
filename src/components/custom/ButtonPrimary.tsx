@@ -9,7 +9,7 @@ type BtnPrimary = {
   isOutline: boolean;
   isLink?: boolean;
   href?: string;
-  handleClick?: () => void;
+  handleClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const ButtonPrimary = ({
