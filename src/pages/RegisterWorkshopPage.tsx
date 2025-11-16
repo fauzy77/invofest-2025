@@ -267,7 +267,7 @@ const RegisterWorkshopPage: React.FC = () => {
         >
           <div className="text-center">
             <h1 className="text-3xl font-bold text-[#852e4e]">
-              Registrasi Workshop
+              Registrasi Workshop Invofest 2025
             </h1>
             <p className="mt-2 text-slate-500">
               Lengkapi data diri Anda untuk mendaftar.
