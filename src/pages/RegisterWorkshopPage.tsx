@@ -192,6 +192,14 @@ const RegisterWorkshopPage: React.FC = () => {
       "institution",
       formData.asalInstitusi || formData.semesterKelas || ""
     );
+    // --- Tambahan untuk Mahasiswa ---
+    if (jenis === "mahasiswa") {
+      data.append("idNumber", formData.nim); // <-- DATA NIM DITAMBAHKAN
+      if (files.ktm) {
+        data.append("idCardUrl", files.ktm); // <-- FILE KTM DITAMBAHKAN
+      }
+    }
+    // -------------------------------
 
     if (files.bayar) data.append("payment", files.bayar);
     if (files.follow) data.append("igFollow", files.follow);

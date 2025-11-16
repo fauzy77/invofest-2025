@@ -24,6 +24,8 @@
     "clsx": "^2.1.1",
     "flowbite": "^2.5.1",
     "framer-motion": "^12.23.24",
+    "jspdf": "^3.0.3",
+    "jspdf-autotable": "^5.0.2",
     "lucide-react": "^0.436.0",
     "postcss": "^8.4.41",
     "react": "^18.3.1",
