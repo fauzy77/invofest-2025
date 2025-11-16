@@ -195,7 +195,7 @@ const RegisterTalkshowPage: React.FC = () => {
     if (jenis === "mahasiswa") {
       data.append("idNumber", formData.nim); // <-- DATA NIM DITAMBAHKAN
       if (files.ktm) {
-        data.append("idCardUrl", files.ktm); // <-- FILE KTM DITAMBAHKAN
+        data.append("idCard", files.ktm); // <-- FILE KTM DITAMBAHKAN
       }
     }
     // -------------------------------

@@ -194,7 +194,7 @@ const RegisterSeminarPage: React.FC = () => {
     if (jenis === "mahasiswa") {
       data.append("idNumber", formData.nim); // <-- DATA NIM DITAMBAHKAN
       if (files.ktm) {
-        data.append("idCardUrl", files.ktm); // <-- FILE KTM DITAMBAHKAN
+        data.append("idCard", files.ktm); // <-- FILE KTM DITAMBAHKAN
       }
     }
     // -------------------------------
@@ -450,7 +450,7 @@ const RegisterSeminarPage: React.FC = () => {
                     className="w-full flex justify-center py-3 px-4 rounded-lg shadow-sm text-white bg-[#852e4e] hover:bg-[#4c1d3d] font-semibold transition duration-200
                              disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isLoading ? "Memproses..." : "Daftar Talkshow"}
+                    {isLoading ? "Memproses..." : "Daftar Seminar"}
                   </button>
                 </div>
               </div>
