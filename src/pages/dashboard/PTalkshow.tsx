@@ -43,8 +43,8 @@ interface TalkshowData {
   institution?: string;
   paymentUrl?: string;
   igFollowUrl?: string;
-  nim?: string;
-  ktmUrl?: string;
+  idNumber?: string;
+  idCardUrl?: string;
   status?: string; // <-- Ditambahkan (Misal: 'PENDING' atau 'VERIFIED')
 }
 
@@ -121,7 +121,7 @@ export const PenTalkshow: React.FC = () => {
         item.category?.toLowerCase().includes(lowerSearch) ||
         item.whatsapp?.toLowerCase().includes(lowerSearch) ||
         item.institution?.toLowerCase().includes(lowerSearch) ||
-        item.nim?.toLowerCase().includes(lowerSearch)
+        item.idNumber?.toLowerCase().includes(lowerSearch)
       );
     });
 
@@ -145,9 +145,9 @@ export const PenTalkshow: React.FC = () => {
     ];
     const tableRows = filteredData.map((item, index) => [
       index + 1, item.fullName || "-", item.category || "-", item.whatsapp || "-",
-      item.institution || "-", item.nim || "-",
+      item.institution || "-", item.idNumber || "-",
       item.paymentUrl ? "Ada" : "-", item.igFollowUrl ? "Ada" : "-",
-      item.ktmUrl ? "Ada" : "-", " ",
+      item.idCardUrl ? "Ada" : "-", " ",
     ]);
     autoTable(doc, {
       head: [tableColumns], body: tableRows, startY: 38,
@@ -303,7 +303,7 @@ export const PenTalkshow: React.FC = () => {
                     {talkshow.institution || "-"}
                   </td>
                   <td className="px-4 py-2 border-b">
-                    {talkshow.nim || "-"}
+                    {talkshow.idNumber || "-"}
                   </td>
                   <td className="px-4 py-2 border-b">
                     {talkshow.paymentUrl ? (
@@ -316,8 +316,8 @@ export const PenTalkshow: React.FC = () => {
                     ) : ( "-" )}
                   </td>
                   <td className="px-4 py-2 border-b">
-                    {talkshow.ktmUrl ? (
-                      <a href={talkshow.ktmUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Lihat Bukti</a>
+                    {talkshow.idCardUrl ? (
+                      <a href={talkshow.idCardUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Lihat Bukti</a>
                     ) : ( "-" )}
                   </td>
                   

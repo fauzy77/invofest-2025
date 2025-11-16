@@ -54,8 +54,8 @@ interface WorkshopData {
   institution?: string;
   paymentUrl?: string;
   igFollowUrl?: string;
-  nim?: string;
-  ktmUrl?: string;
+  idNumber?: string;
+  idCardUrl?: string;
   status?: string;
 }
 
@@ -138,7 +138,7 @@ export const PenWorkshop: React.FC = () => {
         item.category?.toLowerCase().includes(s) ||
         item.whatsapp?.toLowerCase().includes(s) ||
         item.institution?.toLowerCase().includes(s) ||
-        item.nim?.toLowerCase().includes(s)
+        item.idNumber?.toLowerCase().includes(s)
       );
     });
 
@@ -179,10 +179,10 @@ export const PenWorkshop: React.FC = () => {
         item.category || "-",
         item.whatsapp || "-",
         item.institution || "-",
-        item.nim || "-",
+        item.idNumber || "-",
         item.paymentUrl ? "Ada" : "-",
         item.igFollowUrl ? "Ada" : "-",
-        item.ktmUrl ? "Ada" : "-"
+        item.idCardUrl ? "Ada" : "-"
       ]),
       startY: 26,
       theme: "striped"
@@ -344,7 +344,7 @@ export const PenWorkshop: React.FC = () => {
 
                   <td className="px-4 py-2">{item.institution}</td>
 
-                  <td className="px-4 py-2">{item.nim}</td>
+                  <td className="px-4 py-2">{item.idNumber}</td>
 
                   <td className="px-4 py-2">
                     {item.paymentUrl ? (
@@ -375,9 +375,9 @@ export const PenWorkshop: React.FC = () => {
                   </td>
 
                   <td className="px-4 py-2">
-                    {item.ktmUrl ? (
+                    {item.idCardUrl ? (
                       <a
-                        href={item.ktmUrl}
+                        href={item.idCardUrl}
                         target="_blank"
                         className="text-blue-600 underline"
                       >

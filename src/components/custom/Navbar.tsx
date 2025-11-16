@@ -1,10 +1,12 @@
 import React from "react";
 import Logo from "/assets/nav-logo.png";
 import { Link, useLocation } from "react-router-dom";
-import { FaMicrophoneAlt, FaTrophy, FaHome, FaWrench } from "react-icons/fa";
+import { FaMicrophoneAlt, FaTrophy, FaHome } from "react-icons/fa";
 import { MdCoPresent } from "react-icons/md";
 // Mengimpor ikon pengguna sebagai alternatif untuk login admin
 import { FaUserCircle } from "react-icons/fa"; // Contoh ikon pengguna
+import { FaLaptop } from "react-icons/fa";
+
 
 const Navbar = () => {
   const location = useLocation();
@@ -107,7 +109,7 @@ const Navbar = () => {
                   aria-current="page"
                   onClick={() => setOpenMenu(false)}
                 >
-                  <FaWrench />
+                  <FaLaptop />
                   Workshop
                 </Link>
               </li>

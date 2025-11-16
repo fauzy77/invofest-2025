@@ -42,8 +42,8 @@ interface SeminarData {
   institution?: string;
   paymentUrl?: string;
   igFollowUrl?: string;
-  nim?: string;
-  ktmUrl?: string;
+  idNumber?: string;
+  idCardUrl?: string;
   status?: string; // <-- Ditambahkan
 }
 
@@ -120,7 +120,7 @@ export const PenSeminar: React.FC = () => {
         item.category?.toLowerCase().includes(lowerSearch) ||
         item.whatsapp?.toLowerCase().includes(lowerSearch) ||
         item.institution?.toLowerCase().includes(lowerSearch) ||
-        item.nim?.toLowerCase().includes(lowerSearch)
+        item.idNumber?.toLowerCase().includes(lowerSearch)
       );
     });
 
@@ -144,9 +144,9 @@ export const PenSeminar: React.FC = () => {
     ];
     const tableRows = filteredData.map((item, index) => [
       index + 1, item.fullName || "-", item.category || "-", item.whatsapp || "-",
-      item.institution || "-", item.nim || "-",
+      item.institution || "-", item.idNumber || "-",
       item.paymentUrl ? "Ada" : "-", item.igFollowUrl ? "Ada" : "-",
-      item.ktmUrl ? "Ada" : "-", " ",
+      item.idCardUrl ? "Ada" : "-", " ",
     ]);
     autoTable(doc, {
       head: [tableColumns], body: tableRows, startY: 38,
@@ -302,7 +302,7 @@ export const PenSeminar: React.FC = () => {
                     {seminar.institution || "-"}
                   </td>
                   <td className="px-4 py-2 border-b">
-                    {seminar.nim || "-"}
+                    {seminar.idNumber || "-"}
                   </td>
                   <td className="px-4 py-2 border-b">
                     {seminar.paymentUrl ? (
@@ -315,8 +315,8 @@ export const PenSeminar: React.FC = () => {
                     ) : ( "-" )}
                   </td>
                   <td className="px-4 py-2 border-b">
-                    {seminar.ktmUrl ? (
-                      <a href={seminar.ktmUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Lihat Bukti</a>
+                    {seminar.idCardUrl ? (
+                      <a href={seminar.idCardUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Lihat Bukti</a>
                     ) : ( "-" )}
                   </td>
                   
