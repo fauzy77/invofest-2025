@@ -3,6 +3,7 @@ import AOS from "aos";
 import ButtonPrimary from "../custom/ButtonPrimary";
 import { CustomHeroProps } from "@/utils/types";
 
+
 const CustomHero = ({
   title,
   subtitle,
@@ -23,9 +24,8 @@ const CustomHero = ({
     <React.Fragment>
       <div className="max-w-screen-xl mx-auto">
         <div
-          className={`w-full h-fit ${
-            title === "IT Talkshow" ? "p-4 sm:p-20" : "p-4"
-          } px-8`}
+          className={`w-full h-fit ${title === "IT Talkshow" ? "p-4 sm:p-20" : "p-4"
+            } px-8`}
         >
           <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-3">
             <div className="flex flex-col gap-3 sm:gap-4">
@@ -59,9 +59,10 @@ const CustomHero = ({
                   isLink={false}
                   handleClick={(e) => {
                     e.preventDefault();
-                    window.open(linkRegister, "_blank", "noopener,noreferrer");
+                    window.location.href = linkRegister; // pindah halaman
                   }}
                 />
+
 
                 {open && (
                   <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
@@ -76,13 +77,12 @@ const CustomHero = ({
             <img
               src={image}
               alt="hero-landing-page"
-              className={`w-[320px] ${
-                title === "IT Seminar"
-                  ? // ? "sm:w-[360px]"
-                    // : "sm:w-[300px]"
-                    "sm:w-[460px]"
-                  : "sm:w-[400px]"
-              }`}
+              className={`w-[320px] ${title === "IT Seminar"
+                ? // ? "sm:w-[360px]"
+                // : "sm:w-[300px]"
+                "sm:w-[460px]"
+                : "sm:w-[400px]"
+                }`}
               data-aos="fade-up"
               data-aos-delay="100"
             />
